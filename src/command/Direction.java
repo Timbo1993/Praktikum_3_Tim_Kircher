@@ -22,8 +22,12 @@ public class Direction extends Command implements IDirection {
 		this.setDegree(myDegree);
 	}
 
-	public void setDegree(int degree) {
-		this.degree = degree;
+	/**
+	 * Sets the degree of the {@link Direction} 
+	 * @param myDegree
+	 */
+	public void setDegree(int myDegree) {
+		this.degree = myDegree;
 	}
 	
 	/**
@@ -34,6 +38,9 @@ public class Direction extends Command implements IDirection {
 		return this.degree;
 	}
 	
+	/**
+	 * Returns the content of the {@link Direction}
+	 */
 	@Override
 	public String toString(){
 		return getName() + ": " + getDegree() +"°";

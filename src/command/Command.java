@@ -38,7 +38,9 @@ public abstract class Command implements ICommand{
 	public void setName(String myName){
 		this.name = myName;
 	}
-	
+	/**
+	 * Returns the content of the {@link Command}
+	 */
 	@Override
 	public String getName(){
 		return name;

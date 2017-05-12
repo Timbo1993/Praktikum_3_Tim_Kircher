@@ -24,27 +24,50 @@ public class Element {
 		this.setPrev(prev);
 	}
 	
+	/**
+	 * Returns the next {@link Element}
+	 * @return 
+	 */
 	public Element getNext() {
 		return next;
 	}
 	
+	/**
+	 * Sets the next {@link Element}
+	 * @param myNext
+	 */
 	public void setNext(Element myNext) {
 		this.next = myNext;
 	}
-
+	
+	/**
+	 * Returns the previous {@link Element}
+	 * @return
+	 */
 	public Element getPrev() {
 		return prev;
 	}
 		
+	/**
+	 * Sets the previous {@link Element}
+	 * @param myPrev
+	 */
 	public void setPrev(Element myPrev) {
 		this.prev = myPrev;
 	}	
 	
-	
+	/**
+	 * Returns the {@link Command} of an {@link Element}
+	 * @return
+	 */
 	public Command getElement(){
 		return this.element;
 	}
 	
+	/**
+	 * Sets the {@link Command} of an {@link Element}
+	 * @param myElement
+	 */
 	public void setElement(Command myElement){
 		this.element = myElement;
 	}

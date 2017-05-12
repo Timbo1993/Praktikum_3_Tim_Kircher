@@ -22,6 +22,10 @@ public class Repetition extends Command implements IRepetition {
 		this.setNrSteps(myNrSteps);
 	}
 
+	/**
+	 * Sets the number of steps for the {@link Repetition}
+	 * @param myNrSteps
+	 */
 	public void setNrSteps(int myNrSteps) {
 		if(myNrSteps <= 0){
 			System.out.println("Nr of steps should be > 0");
@@ -31,6 +35,10 @@ public class Repetition extends Command implements IRepetition {
 		}
 	}
 
+	/**
+	 * Sets the number of repetitions for the {@link Repetition}
+	 * @param myNrRepetitions
+	 */
 	public void setNrRepetitions(int myNrRepetitions) {
 		if(myNrRepetitions <= 0){
 			System.out.println("Number of repetitions should be > 0");
@@ -56,6 +64,9 @@ public class Repetition extends Command implements IRepetition {
 		return this.nrSteps;
 	}
 	
+	/**
+	 * Returns the content of the {@link Repetition}
+	 */
 	@Override
 	public String toString(){
 		return getName() + ": " + getNrSteps() +" Schritte, " + getNrRepetitions() + " Widerholungen";

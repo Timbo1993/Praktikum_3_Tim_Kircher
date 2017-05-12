@@ -23,10 +23,18 @@ public class Gear extends Command implements IGear {
 		this.setDuration(myDuration);
 		}	
 	
-	public void setSpeed(int speed) {
-		this.speed = speed;
+	/**
+	 * Sets the speed of {@link Gear}
+	 * @param mySpeed
+	 */
+	public void setSpeed(int mySpeed) {
+		this.speed = mySpeed;
 	}
 		
+	/**
+	 * Sets the duration of the {@link Gear}
+	 * @param myDuration
+	 */
 	public void setDuration(double myDuration) {
 		if (myDuration <= 0.0){
 			System.out.println("Duration of gear should be >0");
@@ -50,6 +58,9 @@ public class Gear extends Command implements IGear {
 		return this.duration;
 	}
 
+	/**
+	 * Returns the content of the {@link Gear}
+	 */
 	@Override
 	public String toString(){
 		return getName()+ ": " + getSpeed() + " m/s, " + getDuration() + " s";

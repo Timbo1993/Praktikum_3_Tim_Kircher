@@ -19,6 +19,10 @@ public class Pause extends Command implements IPause{
 		this.setDuration(myDuration);
 	}
 
+	/**
+	 * Sets the duration of the {@link Pause}
+	 * @param myDuration
+	 */
 	public void setDuration(double myDuration) {
 		if(myDuration <= 0){
 			System.out.println("Duration of pause should be > 0");
@@ -35,7 +39,10 @@ public class Pause extends Command implements IPause{
 	public double getDuration() {
 		return this.duration;
 	}
-
+	
+	/**
+	 * Returns the content of the {@link Pause}
+	 */
 	@Override
 	public String toString(){
 		return getName() + ": " + getDuration() +" Sekunden";
