@@ -15,8 +15,8 @@ public class Repetition extends Command implements IRepetition {
 	 * @param myNrRepetitions	the number of repetitions
 	 * @param myName			the name of the {@link Command}
 	 */
-	public Repetition (int myNrSteps, int myNrRepetitions, String myName){
-		super(myName);
+	public Repetition (int myNrSteps, int myNrRepetitions){
+		super("Repetition");
 		this.setNrRepetitions(myNrRepetitions);
 		this.setNrSteps(myNrSteps);
 	}

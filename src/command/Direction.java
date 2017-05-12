@@ -16,8 +16,8 @@ public class Direction extends Command implements IDirection {
 	 * @param myDegree degree of the {@link Direction}
 	 * @param myName name of the {@link Direction}
 	 */
-	public Direction(int myDegree, String myName){
-		super(myName);
+	public Direction(int myDegree){
+		super("Direction");
 		this.setDegree(myDegree);
 	}
 

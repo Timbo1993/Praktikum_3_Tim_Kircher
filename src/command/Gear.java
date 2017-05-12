@@ -16,8 +16,8 @@ public class Gear extends Command implements IGear {
 	 * @param myDuration	the duration of the {@link Gear}
 	 * @param myName		the name of the {@link Command}
 	 */
-	public Gear (int mySpeed, double myDuration, String myName){
-		super(myName);
+	public Gear (int mySpeed, double myDuration){
+		super("Gear");
 		this.setSpeed(mySpeed);
 		this.setDuration(myDuration);
 		}	

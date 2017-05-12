@@ -64,10 +64,10 @@ public class ControlDeveloper {
 	 * Creates new {@link Command}s and saves them in an array
 	 */
 	public static void testCommands(){
-		commands[0] = new Direction(30, "Direction");
-		commands[1] = new Gear(10, 5.0, "Gear");
-		commands[2] = new Repetition(4, 3, "Repetition");
-		commands[3] = new Pause(2, "Pause");
+		commands[0] = new Direction(30);
+		commands[1] = new Gear(10, 5.0);
+		commands[2] = new Repetition(4, 3);
+		commands[3] = new Pause(2);
 	}
 	
 	/**
