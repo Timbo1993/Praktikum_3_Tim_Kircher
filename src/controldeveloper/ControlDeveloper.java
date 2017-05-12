@@ -1,3 +1,14 @@
+/**
+ * Aufgabenblatt 1
+ * Aufgaben 1-4
+ * Bearbeitungsdauer: nicht messbar
+ * Bemerkungen:
+ * keine
+ *
+ * @author Haslach & Kircher
+ * @version 1.0
+ */ 
+
 package controldeveloper;
 import command.Command;
 import command.Direction;

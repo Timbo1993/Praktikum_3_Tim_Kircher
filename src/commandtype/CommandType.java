@@ -1,3 +1,14 @@
+/**
+ * Aufgabenblatt 2
+ * Aufgaben 
+ * Bearbeitungsdauer: nicht messbar
+ * Bemerkungen:
+ * keine
+ *
+ * @author Haslach & Kircher
+ * @version 1.0
+ */ 
+
 package commandtype;
 
 import command.Command;
