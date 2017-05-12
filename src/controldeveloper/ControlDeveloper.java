@@ -104,16 +104,34 @@ public class ControlDeveloper {
 		commandList.printCommandList();		
 		System.out.println("\n");
 		
-		System.out.println("Aufgabe 4: Remove[2](element am ende)");
+		System.out.println("Aufgabe 4: Remove[1](elementin der mitte)");
+		commandList.remove(1);		
+		commandList.printCommandList();		
+		System.out.println("\n");
+		
+		System.out.println("Aufgabe 4: Remove[1](element am ende)");
+		commandList.remove(1);		
+		commandList.printCommandList();		
+		System.out.println("\n");
+		
+		System.out.println("Aufgabe 4: Remove[2](element existiert nicht)");
 		commandList.remove(2);		
 		commandList.printCommandList();		
 		System.out.println("\n");
 	}
 
+	/**
+	 * Returns the name of the {@link ControlDeveloper}
+	 * @return name of the {@link ControlDeveloper}
+	 */
 	public static String getName() {
 		return name;
 	}
 
+	/**
+	 * Sets the name of the {@link ControlDeveloper}
+	 * @param myName	name that is given to the {@link ControlDeveloper}
+	 */
 	public static void setName(String myName) {
 		ControlDeveloper.name = myName;
 	}
