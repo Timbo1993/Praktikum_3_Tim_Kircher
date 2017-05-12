@@ -3,7 +3,6 @@ import hsrt.mec.controldeveloper.core.com.command.IGear;
 
 /**
  * 
- * @author Tim Kircher
  *	The gear {@link Command}
  */
 public class Gear extends Command implements IGear {

@@ -3,7 +3,6 @@ import command.Command;
 
 /**
  * 
- * @author Tim Kircher
  *	An element of the linked list
  */
 public class Element {

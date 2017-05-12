@@ -3,7 +3,6 @@ import hsrt.mec.controldeveloper.core.com.command.ICommand;
 
 /**
  * 
- * @author Tim Kircher
  *Base class of all commands
  */
 

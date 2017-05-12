@@ -3,7 +3,6 @@ import hsrt.mec.controldeveloper.core.com.command.IDirection;
 
 /**
  * 
- * @author Tim Kircher
  * The Direction Command
  */
 

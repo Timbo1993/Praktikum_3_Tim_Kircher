@@ -3,7 +3,6 @@ import hsrt.mec.controldeveloper.core.com.command.IPause;
 
 /**
  * 
- * @author Tim Kircher
  *	The pause command
  */
 public class Pause extends Command implements IPause{

@@ -3,7 +3,6 @@ import command.Command;
 
 /**
  * 
- * @author Tim Kircher
  *	The linked list with the {@link Command}s
  */
 public class CommandList {

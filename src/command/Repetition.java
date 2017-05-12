@@ -3,7 +3,6 @@ import hsrt.mec.controldeveloper.core.com.command.IRepetition;
 
 /**
  * 
- * @author Tim Kircher
  *	The Repetition {@link Command}
  */
 public class Repetition extends Command implements IRepetition {

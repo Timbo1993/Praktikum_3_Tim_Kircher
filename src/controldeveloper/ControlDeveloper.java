@@ -11,8 +11,6 @@ import commandlist.CommandList;
 
 /**
  * 
- * @author Tim Kircher
- * @author Lenz Haslach
  *	Test Class to test {@link Command}s and {@link CommandList} methods
  */
 public class ControlDeveloper {
