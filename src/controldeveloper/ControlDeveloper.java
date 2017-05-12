@@ -80,27 +80,27 @@ public class ControlDeveloper {
 		
 		//MoveUp
 		System.out.println("Aufgabe 4: moveUp [-1]");
-		commandList.moveDown(-1);		
+		commandList.moveUp(-1);		
 		commandList.printCommandList();		
 		System.out.println("\n");
 		
 		System.out.println("Aufgabe 4: moveUp[0] (erstes Element)");
-		commandList.moveDown(0);		
+		commandList.moveUp(0);		
 		commandList.printCommandList();		
 		System.out.println("\n");
 		
 		System.out.println("Aufgabe 4: moveUp[2]");
-		commandList.moveDown(2);		
+		commandList.moveUp(2);		
 		commandList.printCommandList();		
 		System.out.println("\n");
 		
 		System.out.println("Aufgabe 4: moveUp[3](letztes Element)");
-		commandList.moveDown(3);		
+		commandList.moveUp(3);		
 		commandList.printCommandList();		
 		System.out.println("\n");
 		
 		System.out.println("Aufgabe 4: moveUp[7](element existiert nicht)");
-		commandList.moveDown(7);		
+		commandList.moveUp(7);		
 		commandList.printCommandList();		
 		System.out.println("\n");
 		
