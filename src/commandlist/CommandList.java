@@ -51,19 +51,23 @@ public class CommandList {
 		boolean isInList = true;		//wenn position größer ist als listenelemente vorhanden
 		Element hilfszeiger = this.root;
 		int counter = 0;
-		
+		if(pos < 0){
+			System.out.println("Please enter pos > 0");
+			isInList = false;
+		}
+		else{
 		while (counter < pos && isInList){
-			if (hilfszeiger.getNext() != null){
-				hilfszeiger = hilfszeiger.getNext();
-				counter++;
-			}
-			else{
-				isInList = false;
-				System.out.println("List does not have position: " + pos);
-				System.out.println("\n");
+				if (hilfszeiger.getNext() != null){
+					hilfszeiger = hilfszeiger.getNext();
+					counter++;
+				}
+				else{
+					isInList = false;
+					System.out.println("List does not have position: " + pos);
+					System.out.println("\n");
+				}
 			}
 		}
-		
 		if(isInList){
 			if (pos == 0){
 				hilfszeiger.getNext().setPrev(null);
