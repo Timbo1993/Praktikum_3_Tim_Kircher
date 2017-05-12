@@ -70,6 +70,7 @@ public class Gear extends Command implements IGear {
 
 	/**
 	 * Returns the content of the {@link Gear}
+	 * Format: "{@link name}: {@link speed} m/s, {@link duration} s"
 	 */
 	@Override
 	public String toString(){
