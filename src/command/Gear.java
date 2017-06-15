@@ -55,7 +55,7 @@ public class Gear extends Command implements IGear {
 	/**
 	 * Returns the speed of the {@link Gear}
 	 */
-	@Override	
+	@Override	//?
 	public int getSpeed() {
 		return this.speed;
 	}
@@ -63,7 +63,7 @@ public class Gear extends Command implements IGear {
 	/**
 	 * Returns the duration of the {@link Gear}
 	 */
-	@Override
+	@Override	//?
 	public double getDuration() {
 		return this.duration;
 	}

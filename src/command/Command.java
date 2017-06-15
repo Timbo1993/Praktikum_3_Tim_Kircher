@@ -28,16 +28,8 @@ public abstract class Command implements ICommand{
 	 * @param myName the name of the {@link Command} 
 	 */
 	public Command(String myName){
-//		if (myName == null){
-//			System.out.println("Name should not be null");
-//			this.name = "";
-//		}
-//		if(myName.isEmpty()){
-//			System.out.println("Name should not be empty!");
-//		}
-//		else{
-			this.name = myName;
-//		}
+		this.name = myName;
+
 	}
 	
 	/**
@@ -48,6 +40,7 @@ public abstract class Command implements ICommand{
 	public void setName(String myName){
 		this.name = myName;
 	}
+	
 	/**
 	 * Returns the content of the {@link Command}
 	 */

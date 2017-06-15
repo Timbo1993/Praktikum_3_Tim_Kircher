@@ -24,6 +24,9 @@ import commandlist.CommandList;
  * 
  *	Test Class to test {@link Command}s and {@link CommandList} methods
  */
+
+
+//Github test
 public class ControlDeveloper {
 
 	private static String name = "Control-Developer";
