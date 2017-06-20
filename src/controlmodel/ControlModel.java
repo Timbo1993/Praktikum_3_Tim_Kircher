@@ -11,21 +11,28 @@
 
 package controlmodel;
 
+import java.io.File;
+import java.util.Vector;
 import command.Command;
 import commandlist.CommandList;
 import commandtype.CommandType;
+import hsrt.mec.controldeveloper.io.IOType;
+import hsrt.mec.controldeveloper.io.TextFile;
 
-public class ControlModel {
+public class ControlModel{
 	
-	private ControlModel instance;
+	private static ControlModel instance = null;
 	private CommandType[] commandTypes = new CommandType[4];
-	private CommandList controlProcess;
+	private CommandList controlProcess = new CommandList();
 	
 	
 	private ControlModel(){
 	}
 	
-	public ControlModel getInstance(){
+	public static ControlModel getInstance(){
+		if (instance == null){
+			instance = new ControlModel();
+		}
 		return instance;
 	}
 	
@@ -37,18 +44,48 @@ public class ControlModel {
 	}
 	
 //	public boolean load(File f){
-//		return null
-//	}
-//	
-//	public boolean save(File f){
 //		return null;
 //	}
+	
+//	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public boolean save(File f){
+		IOType txt = new TextFile(f, false);
+		Vector data = new Vector();
+		int i = 0;
+		
+		while (controlProcess.get(i++) != null){			
+			if (controlProcess.get(i).getName() == "Direction"){
+				data.add(controlProcess.get(i).toString());				
+			}
+			else if (controlProcess.get(i).getName() == "Gear"){
+				data.add(controlProcess.get(i).toString());
+			}
+			
+			else if (controlProcess.get(i).getName() == "Repetition"){
+				data.add(controlProcess.get(i).toString());
+			}
+			
+			else if (controlProcess.get(i).getName() == "Pause"){
+				data.add(controlProcess.get(i).toString());
+			}
+			else{
+				return false;
+			}
+		}
+		data.add("end");
+		boolean success = txt.write(data);
+		txt.close();
+		return success;
+	}
 	
 	public void commandPerformed(Command com){
 		
 	}
 	
 	public CommandList getControlProcess(){
+//		if (){
+//			
+//		}
 		return controlProcess;
 	}
 	

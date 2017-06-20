@@ -10,12 +10,16 @@
  */ 
 
 package controldeveloper;
+import java.io.File;
+import java.io.IOException;
+
 import command.Command;
 import command.Direction;
 import command.Gear;
 import command.Pause;
 import command.Repetition;
 import commandlist.CommandList;
+import controlmodel.ControlModel;
 
 // modifizierer static: methode kann aufgerufen werden,
 // ohne dass davor ein objekt der Klasse erzeugt werden muss
@@ -36,8 +40,18 @@ public class ControlDeveloper {
 
 	
 //Main 	Blatt 2
-	public static void main(String[] args){
-		
+	public static void main(String[] args) throws IOException{
+		testCommands();
+		ControlModel cm = ControlModel.getInstance();
+		cm.getControlProcess().add(commands[0]);
+		cm.getControlProcess().add(commands[1]);
+		cm.getControlProcess().add(commands[2]);
+		cm.getControlProcess().add(commands[3]);
+		File f = new File("D:/Benutzer/Tim/Documents/beispiel.txt");
+		f.createNewFile();
+
+		cm.save(f);
+//	
 	}
 	
 // Main Blatt 1	
