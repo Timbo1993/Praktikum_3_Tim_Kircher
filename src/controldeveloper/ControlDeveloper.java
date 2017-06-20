@@ -33,106 +33,113 @@ public class ControlDeveloper {
 	static int counter = 4;
 	static Command[] commands = new Command[counter];
 	static CommandList commandList;
+
 	
-	public static void main(String[] args) {
-		// TODO Auto-generated method stub
-		System.out.println("Aufgabe 1:");
-		System.out.println(name);
-		System.out.println(getName());		
-		System.out.println("\n");
+//Main 	Blatt 2
+	public static void main(String[] args){
 		
-		System.out.println("Aufgabe 3:");
-		testCommands();
-		printCommands();
-		
-		System.out.println("\n");
-		System.out.println("Aufgabe 4: liste hinzufügen und ausgeben:");
-		commandList  = new CommandList();
-		commandList.add(commands[0]);
-		commandList.add(commands[1]);
-		commandList.add(commands[2]);
-		commandList.add(commands[3]);
-		commandList.printCommandList();		
-		System.out.println("\n");
-
-		//MoveDown
-		System.out.println("Aufgabe 4: moveDown [-1]");
-		commandList.moveDown(-1);		
-		commandList.printCommandList();		
-		System.out.println("\n");
-		
-		System.out.println("Aufgabe 4: moveDown[0] (erstes Element)");
-		commandList.moveDown(0);		
-		commandList.printCommandList();		
-		System.out.println("\n");
-		
-		System.out.println("Aufgabe 4: moveDown[2]");
-		commandList.moveDown(2);		
-		commandList.printCommandList();		
-		System.out.println("\n");
-		
-		System.out.println("Aufgabe 4: moveDown[3](letztes Element)");
-		commandList.moveDown(3);		
-		commandList.printCommandList();		
-		System.out.println("\n");
-		
-		System.out.println("Aufgabe 4: moveDown[7](element existiert nicht)");
-		commandList.moveDown(7);		
-		commandList.printCommandList();		
-		System.out.println("\n");
-		
-		//MoveUp
-		System.out.println("Aufgabe 4: moveUp [-1]");
-		commandList.moveUp(-1);		
-		commandList.printCommandList();		
-		System.out.println("\n");
-		
-		System.out.println("Aufgabe 4: moveUp[0] (erstes Element)");
-		commandList.moveUp(0);		
-		commandList.printCommandList();		
-		System.out.println("\n");
-		
-		System.out.println("Aufgabe 4: moveUp[2]");
-		commandList.moveUp(2);		
-		commandList.printCommandList();		
-		System.out.println("\n");
-		
-		System.out.println("Aufgabe 4: moveUp[3](letztes Element)");
-		commandList.moveUp(3);		
-		commandList.printCommandList();		
-		System.out.println("\n");
-		
-		System.out.println("Aufgabe 4: moveUp[7](element existiert nicht)");
-		commandList.moveUp(7);		
-		commandList.printCommandList();		
-		System.out.println("\n");
-		
-		//Remove
-		System.out.println("Aufgabe 4: Remove[-1](element existiert nicht)");
-		commandList.remove(-1);		
-		commandList.printCommandList();		
-		System.out.println("\n");
-
-		System.out.println("Aufgabe 4: Remove[0](erstes Element)");
-		commandList.remove(0);		
-		commandList.printCommandList();		
-		System.out.println("\n");
-		
-		System.out.println("Aufgabe 4: Remove[1](elementin der mitte)");
-		commandList.remove(1);		
-		commandList.printCommandList();		
-		System.out.println("\n");
-		
-		System.out.println("Aufgabe 4: Remove[1](element am ende)");
-		commandList.remove(1);		
-		commandList.printCommandList();		
-		System.out.println("\n");
-		
-		System.out.println("Aufgabe 4: Remove[2](element existiert nicht)");
-		commandList.remove(2);		
-		commandList.printCommandList();		
-		System.out.println("\n");
 	}
+	
+// Main Blatt 1	
+//	public static void main(String[] args) {
+//		// TODO Auto-generated method stub
+//		System.out.println("Aufgabe 1:");
+//		System.out.println(name);
+//		System.out.println(getName());		
+//		System.out.println("\n");
+//		
+//		System.out.println("Aufgabe 3:");
+//		testCommands();
+//		printCommands();
+//		
+//		System.out.println("\n");
+//		System.out.println("Aufgabe 4: liste hinzufügen und ausgeben:");
+//		commandList  = new CommandList();
+//		commandList.add(commands[0]);
+//		commandList.add(commands[1]);
+//		commandList.add(commands[2]);
+//		commandList.add(commands[3]);
+//		commandList.printCommandList();		
+//		System.out.println("\n");
+//
+//		//MoveDown
+//		System.out.println("Aufgabe 4: moveDown [-1]");
+//		commandList.moveDown(-1);		
+//		commandList.printCommandList();		
+//		System.out.println("\n");
+//		
+//		System.out.println("Aufgabe 4: moveDown[0] (erstes Element)");
+//		commandList.moveDown(0);		
+//		commandList.printCommandList();		
+//		System.out.println("\n");
+//		
+//		System.out.println("Aufgabe 4: moveDown[2]");
+//		commandList.moveDown(2);		
+//		commandList.printCommandList();		
+//		System.out.println("\n");
+//		
+//		System.out.println("Aufgabe 4: moveDown[3](letztes Element)");
+//		commandList.moveDown(3);		
+//		commandList.printCommandList();		
+//		System.out.println("\n");
+//		
+//		System.out.println("Aufgabe 4: moveDown[7](element existiert nicht)");
+//		commandList.moveDown(7);		
+//		commandList.printCommandList();		
+//		System.out.println("\n");
+//		
+//		//MoveUp
+//		System.out.println("Aufgabe 4: moveUp [-1]");
+//		commandList.moveUp(-1);		
+//		commandList.printCommandList();		
+//		System.out.println("\n");
+//		
+//		System.out.println("Aufgabe 4: moveUp[0] (erstes Element)");
+//		commandList.moveUp(0);		
+//		commandList.printCommandList();		
+//		System.out.println("\n");
+//		
+//		System.out.println("Aufgabe 4: moveUp[2]");
+//		commandList.moveUp(2);		
+//		commandList.printCommandList();		
+//		System.out.println("\n");
+//		
+//		System.out.println("Aufgabe 4: moveUp[3](letztes Element)");
+//		commandList.moveUp(3);		
+//		commandList.printCommandList();		
+//		System.out.println("\n");
+//		
+//		System.out.println("Aufgabe 4: moveUp[7](element existiert nicht)");
+//		commandList.moveUp(7);		
+//		commandList.printCommandList();		
+//		System.out.println("\n");
+//		
+//		//Remove
+//		System.out.println("Aufgabe 4: Remove[-1](element existiert nicht)");
+//		commandList.remove(-1);		
+//		commandList.printCommandList();		
+//		System.out.println("\n");
+//
+//		System.out.println("Aufgabe 4: Remove[0](erstes Element)");
+//		commandList.remove(0);		
+//		commandList.printCommandList();		
+//		System.out.println("\n");
+//		
+//		System.out.println("Aufgabe 4: Remove[1](elementin der mitte)");
+//		commandList.remove(1);		
+//		commandList.printCommandList();		
+//		System.out.println("\n");
+//		
+//		System.out.println("Aufgabe 4: Remove[1](element am ende)");
+//		commandList.remove(1);		
+//		commandList.printCommandList();		
+//		System.out.println("\n");
+//		
+//		System.out.println("Aufgabe 4: Remove[2](element existiert nicht)");
+//		commandList.remove(2);		
+//		commandList.printCommandList();		
+//		System.out.println("\n");
+//	}
 
 	/**
 	 * Returns the name of the {@link ControlDeveloper}
