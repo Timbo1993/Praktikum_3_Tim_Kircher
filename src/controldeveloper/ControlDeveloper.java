@@ -47,11 +47,11 @@ public class ControlDeveloper {
 		cm.getControlProcess().add(commands[1]);
 		cm.getControlProcess().add(commands[2]);
 		cm.getControlProcess().add(commands[3]);
-		File f = new File("D:/Benutzer/Tim/Documents/beispiel.txt");
-		f.createNewFile();
+		File f = new File("D:/beispiel.txt");
+//		f.createNewFile();
 
-		cm.save(f);
-//	
+//		cm.save(f);	
+		cm.load(f);
 	}
 	
 // Main Blatt 1	

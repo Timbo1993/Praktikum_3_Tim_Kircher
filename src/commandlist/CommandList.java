@@ -116,8 +116,9 @@ public class CommandList {
 			}
 			else{
 				isInList = false;
-				System.out.println("List does not have the position " + pos);
+//				System.out.println("List does not have the position " + pos);
 				System.out.println("\n");
+				return null;
 			}
 		}
 		

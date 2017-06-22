@@ -1,0 +1,5 @@
+Direction: 30°
+Gear: 10 m/s, 5.0 s
+Repetition: 4 Schritte, 3 Widerholungen
+Pause: 2.0 Sekunden
+end

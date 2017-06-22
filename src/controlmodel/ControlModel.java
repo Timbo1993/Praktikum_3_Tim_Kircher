@@ -43,19 +43,30 @@ public class ControlModel{
 		commandTypes[3] = new CommandType("Pause");
 	}
 	
-//	public boolean load(File f){
-//		return null;
-//	}
-	
-//	@SuppressWarnings({ "unchecked", "rawtypes" })
-	public boolean save(File f){
-		IOType txt = new TextFile(f, false);
+	public boolean load(File f){
 		Vector data = new Vector();
+		TextFile txt = new TextFile(f, false);
+		boolean success = txt.read(data);
+		txt.close();
+		int i = 0;
+		while(data.get(i) != "end"){
+			
+			i++;
+		}
+		return success;
+	}
+	
+	@SuppressWarnings({ "unchecked", "rawtypes" })
+	public boolean save(File f){
+		TextFile txt = new TextFile(f, false);
+		Vector data = new Vector();
+		boolean success = false;
 		int i = 0;
 		
-		while (controlProcess.get(i++) != null){			
+		while (controlProcess.get(i) != null){	
+
 			if (controlProcess.get(i).getName() == "Direction"){
-				data.add(controlProcess.get(i).toString());				
+				data.add(controlProcess.get(i).toString());	
 			}
 			else if (controlProcess.get(i).getName() == "Gear"){
 				data.add(controlProcess.get(i).toString());
@@ -71,9 +82,10 @@ public class ControlModel{
 			else{
 				return false;
 			}
+			i++;
 		}
 		data.add("end");
-		boolean success = txt.write(data);
+		success = txt.write(data);
 		txt.close();
 		return success;
 	}
