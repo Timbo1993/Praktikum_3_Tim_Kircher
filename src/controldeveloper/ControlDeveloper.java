@@ -47,10 +47,12 @@ public class ControlDeveloper {
 		cm.getControlProcess().add(commands[2]);
 		cm.getControlProcess().add(commands[3]);
 		cm.save(f);		
+		cm.getControlProcess().clearCommandList();
+		cm.getControlProcess().printCommandList();
 		cm.load(f);
 		cm.getControlProcess().printCommandList();
-		
 		cm.getControlProcess().clearCommandList();
+		
 		
 		cm.createCommandTypes();	
 		
@@ -72,6 +74,8 @@ public class ControlDeveloper {
 		cm.load(f);
 		cm.getControlProcess().printCommandList();
 	}
+	
+	
 	{
 // Main Blatt 1	
 //	public static void main(String[] args) {

@@ -271,9 +271,13 @@ public class CommandList {
 	 */
 	public void printCommandList(){
 		Element hilfszeiger = this.root;
-		while (hilfszeiger != null){
-			System.out.println(hilfszeiger.getElement().toString());
-			hilfszeiger = hilfszeiger.getNext();
+		if(hilfszeiger == null)
+			System.out.println("Liste ist leer");
+		else{
+			while (hilfszeiger != null){
+				System.out.println(hilfszeiger.getElement().toString());
+				hilfszeiger = hilfszeiger.getNext();
+			}
 		}
 	}
 	
