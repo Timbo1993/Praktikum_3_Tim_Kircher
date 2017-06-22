@@ -24,7 +24,7 @@ public class Pause extends Command implements IPause{
 	 * @param myDuration	the duration of {@link Pause}
 	 * @param myName		the name of the {@link Command}
 	 */
-	public Pause(int myDuration){
+	public Pause(double myDuration){
 		super("Pause");
 		this.setDuration(myDuration);
 	}

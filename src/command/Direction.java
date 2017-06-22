@@ -53,6 +53,6 @@ public class Direction extends Command implements IDirection {
 	 */
 	@Override
 	public String toString(){
-		return getName() + ": " + getDegree() +"°";
+		return getName() + ": " + getDegree() +" °";
 	}
 }

@@ -41,17 +41,18 @@ public class ControlDeveloper {
 	
 //Main 	Blatt 2
 	public static void main(String[] args) throws IOException{
-		testCommands();
+//		testCommands();
 		ControlModel cm = ControlModel.getInstance();
-		cm.getControlProcess().add(commands[0]);
-		cm.getControlProcess().add(commands[1]);
-		cm.getControlProcess().add(commands[2]);
-		cm.getControlProcess().add(commands[3]);
+//		cm.getControlProcess().add(commands[0]);
+//		cm.getControlProcess().add(commands[1]);
+//		cm.getControlProcess().add(commands[2]);
+//		cm.getControlProcess().add(commands[3]);
 		File f = new File("D:/beispiel.txt");
 //		f.createNewFile();
 
 //		cm.save(f);	
 		cm.load(f);
+		cm.getControlProcess().printCommandList();
 	}
 	
 // Main Blatt 1	
