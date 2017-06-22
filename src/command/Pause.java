@@ -35,7 +35,7 @@ public class Pause extends Command implements IPause{
 	 */
 	public void setDuration(double myDuration) {
 		if(myDuration <= 0){
-			System.out.println("Duration of pause should be > 0");
+//			System.out.println("Duration of pause should be > 0");
 		}
 		else {
 			this.duration = myDuration;

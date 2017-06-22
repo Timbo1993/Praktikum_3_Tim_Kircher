@@ -25,6 +25,8 @@ public class CommandList {
 	 */
 	public CommandList(){
 		//empty
+		this.root = null;
+
 	}
 		
 	/**
@@ -66,8 +68,9 @@ public class CommandList {
 			System.out.println("Please enter pos > 0");
 			isInList = false;
 		}
+		//schleife läuft bis zur gesuchten Position
 		else{
-		while (counter < pos && isInList){
+			while (counter < pos && isInList){
 				if (hilfszeiger.getNext() != null){
 					hilfszeiger = hilfszeiger.getNext();
 					counter++;
@@ -79,13 +82,21 @@ public class CommandList {
 				}
 			}
 		}
+		
 		if(isInList){
 			if (pos == 0){
-				hilfszeiger.getNext().setPrev(null);
-				this.root = hilfszeiger.getNext();				
+				if(hilfszeiger.getNext() == null){
+					this.root = null;
+				}
+				else{
+					hilfszeiger.getNext().setPrev(null);
+					this.root = hilfszeiger.getNext();
+					success = true;
+				}
 			}
 			else if (hilfszeiger.getNext() == null){
 				hilfszeiger.getPrev().setNext(null);
+				success = true;
 			}
 			else{
 				Element next = hilfszeiger.getNext();
@@ -263,6 +274,15 @@ public class CommandList {
 		while (hilfszeiger != null){
 			System.out.println(hilfszeiger.getElement().toString());
 			hilfszeiger = hilfszeiger.getNext();
+		}
+	}
+	
+	/**
+	 * deletes the whole {@link CommandList}
+	 */
+	public void clearCommandList(){
+		if(this.remove(0) == true){
+			this.clearCommandList();
 		}
 	}
 }

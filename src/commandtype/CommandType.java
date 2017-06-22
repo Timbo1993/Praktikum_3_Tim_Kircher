@@ -17,13 +17,26 @@ import command.Gear;
 import command.Pause;
 import command.Repetition;
 
+/**
+ * 
+ *	4 objects of this class exist, one for every {@link Command}
+ */
 public class CommandType {
 	private String name;
 
+	/**
+	 * Constructor of {@link CommandType}
+	 * @param myName	name of the {@link CommandType}
+	 */
 	public CommandType(String myName){
 		this.name = myName;
 	}
 	
+	/**
+	 * Checks the name of the {@link CommandType} and creates one instance of the stated {@link Command}
+	 * @return the instance of the {@link Command} that was created
+	 */
+	//woher bekommt createInstance die infos für die werte? aus GUI?
 	public Command createInstance(){
 		switch(this.getName()){
 		
@@ -49,6 +62,10 @@ public class CommandType {
 		}
 	}
 	
+	/**
+	 * 
+	 * @return the name of the {@link CommandType}
+	 */
 	public String getName() {
 		return name;
 	}

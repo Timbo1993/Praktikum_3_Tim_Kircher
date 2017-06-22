@@ -38,7 +38,7 @@ public class Repetition extends Command implements IRepetition {
 	 */
 	public void setNrSteps(int myNrSteps) {
 		if(myNrSteps <= 0){
-			System.out.println("Nr of steps should be > 0");
+//			System.out.println("Nr of steps should be > 0");
 		}
 		else {
 			this.nrSteps = myNrSteps;
@@ -51,7 +51,7 @@ public class Repetition extends Command implements IRepetition {
 	 */
 	public void setNrRepetitions(int myNrRepetitions) {
 		if(myNrRepetitions <= 0){
-			System.out.println("Number of repetitions should be > 0");
+//			System.out.println("Number of repetitions should be > 0");
 		}
 		else {
 			this.nrRepetitions = myNrRepetitions;

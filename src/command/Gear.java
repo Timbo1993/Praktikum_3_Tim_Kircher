@@ -47,7 +47,7 @@ public class Gear extends Command implements IGear {
 	 */
 	public void setDuration(double myDuration) {
 		if (myDuration <= 0.0){
-			System.out.println("Duration of gear should be >0");
+//			System.out.println("Duration of gear should be >0");
 		}
 		this.duration = myDuration;
 	}

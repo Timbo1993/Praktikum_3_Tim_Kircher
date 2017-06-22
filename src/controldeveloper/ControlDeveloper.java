@@ -11,8 +11,6 @@
 
 package controldeveloper;
 import java.io.File;
-import java.io.IOException;
-
 import command.Command;
 import command.Direction;
 import command.Gear;
@@ -30,7 +28,6 @@ import controlmodel.ControlModel;
  */
 
 
-//Github test
 public class ControlDeveloper {
 
 	private static String name = "Control-Developer";
@@ -40,22 +37,42 @@ public class ControlDeveloper {
 
 	
 //Main 	Blatt 2
-	public static void main(String[] args) throws IOException{
-//		testCommands();
+	public static void main(String[] args) {
 		ControlModel cm = ControlModel.getInstance();
-//		cm.getControlProcess().add(commands[0]);
-//		cm.getControlProcess().add(commands[1]);
-//		cm.getControlProcess().add(commands[2]);
-//		cm.getControlProcess().add(commands[3]);
 		File f = new File("D:/beispiel.txt");
-//		f.createNewFile();
 
-//		cm.save(f);	
+		testCommands();
+		cm.getControlProcess().add(commands[0]);
+		cm.getControlProcess().add(commands[1]);
+		cm.getControlProcess().add(commands[2]);
+		cm.getControlProcess().add(commands[3]);
+		cm.save(f);		
 		cm.load(f);
 		cm.getControlProcess().printCommandList();
-		cm.createCommandTypes();
+		
+		cm.getControlProcess().clearCommandList();
+		
+		cm.createCommandTypes();	
+		
+		cm.getControlProcess().add(cm.getCommandTypes()[0].createInstance());	//fügt eine Direction zur Liste hinzu
+		((Direction) cm.getControlProcess().get(0)).setDegree(1);
+		
+		cm.getControlProcess().add(cm.getCommandTypes()[1].createInstance());	//fügt einen Gear zur Liste hinzu
+		((Gear) cm.getControlProcess().get(1)).setSpeed(2);
+		((Gear) cm.getControlProcess().get(1)).setDuration(3.4);
+		
+		cm.getControlProcess().add(cm.getCommandTypes()[2].createInstance());	//fügt eine Repetition zur Liste hinzu
+		((Repetition) cm.getControlProcess().get(2)).setNrSteps(5);
+		((Repetition) cm.getControlProcess().get(2)).setNrRepetitions(6);
+		
+		cm.getControlProcess().add(cm.getCommandTypes()[3].createInstance());	//fügt eine Pause zur Liste hinzu
+		((Pause) cm.getControlProcess().get(3)).setDuration(7.8);
+				
+		cm.save(f);	
+		cm.load(f);
+		cm.getControlProcess().printCommandList();
 	}
-	
+	{
 // Main Blatt 1	
 //	public static void main(String[] args) {
 //		// TODO Auto-generated method stub
@@ -156,7 +173,7 @@ public class ControlDeveloper {
 //		commandList.printCommandList();		
 //		System.out.println("\n");
 //	}
-
+	}
 	/**
 	 * Returns the name of the {@link ControlDeveloper}
 	 * @return name of the {@link ControlDeveloper}
@@ -178,9 +195,9 @@ public class ControlDeveloper {
 	 */
 	public static void testCommands(){
 		commands[0] = new Direction(30);
-		commands[1] = new Gear(10, 5.0);
+		commands[1] = new Gear(10, 5.1);
 		commands[2] = new Repetition(4, 3);
-		commands[3] = new Pause(2);
+		commands[3] = new Pause(2.3);
 	}
 	
 	/**
