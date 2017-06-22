@@ -59,16 +59,17 @@ public class ControlModel{
 		while(data.get(i).toString().equals("end") == false){
 			String s1 = data.get(i).toString();
 			String[] teile = s1.split("\\s");
-			if(teile[0] == "Direction:"){
+			//if(teile[0] == "Direction:"){				// Warum nicht Möglich?
+			if(teile[0].equals("Direction:") == true ){
 				c = new Direction(Integer.parseInt(teile[1]));
 			}
-			else if (teile[0] == "Gear:"){
+			else if (teile[0].equals("Gear:") == true){
 				c = new Gear(Integer.parseInt(teile[1]), Double.parseDouble(teile[3]));
 			}
-			else if (teile[0] == "Repetition:"){
+			else if (teile[0].equals("Repetition:") == true ){
 				c = new Repetition(Integer.parseInt(teile[1]), Integer.parseInt(teile[3]));
 			}
-			else if (teile[0] == "Pause:"){
+			else if (teile[0].equals("Pause:") == true){
 				c = new Pause(Double.parseDouble(teile[1]));
 			}
 			controlProcess.add(c);

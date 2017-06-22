@@ -53,6 +53,7 @@ public class ControlDeveloper {
 //		cm.save(f);	
 		cm.load(f);
 		cm.getControlProcess().printCommandList();
+		cm.createCommandTypes();
 	}
 	
 // Main Blatt 1	
