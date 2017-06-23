@@ -10,14 +10,12 @@
  */ 
 
 package controldeveloper;
-import java.io.File;
 import command.Command;
 import command.Direction;
 import command.Gear;
 import command.Pause;
 import command.Repetition;
 import commandlist.CommandList;
-import controlmodel.ControlModel;
 
 // modifizierer static: methode kann aufgerufen werden,
 // ohne dass davor ein objekt der Klasse erzeugt werden muss
@@ -35,7 +33,10 @@ public class ControlDeveloper {
 	static Command[] commands = new Command[counter];
 	static CommandList commandList;
 
-	
+	public static void main(String[] args) {
+		
+	}
+/*	
 //Main 	Blatt 2
 	public static void main(String[] args) {
 		ControlModel cm = ControlModel.getInstance();
@@ -69,7 +70,10 @@ public class ControlDeveloper {
 		
 		cm.getControlProcess().add(cm.getCommandTypes()[3].createInstance());	//fügt eine Pause zur Liste hinzu
 		((Pause) cm.getControlProcess().get(3)).setDuration(7.8);
-				
+			
+		cm.getControlProcess().add(commands[0]);
+
+		
 		cm.save(f);	
 		cm.load(f);
 		cm.getControlProcess().printCommandList();
@@ -178,6 +182,8 @@ public class ControlDeveloper {
 //		System.out.println("\n");
 //	}
 	}
+	*/
+
 	/**
 	 * Returns the name of the {@link ControlDeveloper}
 	 * @return name of the {@link ControlDeveloper}

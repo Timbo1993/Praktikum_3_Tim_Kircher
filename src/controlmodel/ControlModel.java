@@ -78,8 +78,8 @@ public class ControlModel{
 		controlProcess = new CommandList();
 		Vector data = new Vector();
 		TextFile txt = new TextFile(f, false);
-		boolean success = txt.read(data);	//Speichert Inhalt der Textdatei im Vektor, jede Zeile ist ein "Inhalt des vektors"
-		txt.close();
+		boolean success = (txt.read(data) && txt.close());	//Speichert Inhalt der Textdatei im Vektor, jede Zeile ist ein "Inhalt des vektors"
+		
 		int i = 0;		//Laufvariable für die Zeilen der Textdatei
 		Command c = null;
 		
@@ -132,8 +132,7 @@ public class ControlModel{
 			i++;
 		}
 		data.add("end");
-		success = txt.write(data);
-		txt.close();
+		success =( txt.write(data) && txt.close());
 		return success;
 	}
 	
