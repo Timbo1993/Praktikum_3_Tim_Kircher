@@ -129,23 +129,6 @@ public class ControlModel{
 		
 		while (controlProcess.get(i) != null){	
 			data.add(controlProcess.get(i).toString());
-//			if (controlProcess.get(i).getName() == "Direction"){
-//				data.add(controlProcess.get(i).toString());	
-//			}
-//			else if (controlProcess.get(i).getName() == "Gear"){
-//				data.add(controlProcess.get(i).toString());
-//			}
-//			
-//			else if (controlProcess.get(i).getName() == "Repetition"){
-//				data.add(controlProcess.get(i).toString());
-//			}
-//			
-//			else if (controlProcess.get(i).getName() == "Pause"){
-//				data.add(controlProcess.get(i).toString());
-//			}
-//			else{
-//				return false;
-//			}
 			i++;
 		}
 		data.add("end");
