@@ -10,6 +10,23 @@
  */ 
 
 package controldeveloper;
+import java.awt.BorderLayout;
+import java.awt.Color;
+import java.awt.GridBagConstraints;
+import java.awt.GridBagLayout;
+
+import javax.swing.JEditorPane;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JList;
+import javax.swing.JMenu;
+import javax.swing.JMenuBar;
+import javax.swing.JPanel;
+import javax.swing.JScrollPane;
+import javax.swing.ScrollPaneConstants;
+import javax.swing.border.Border;
+import javax.swing.border.LineBorder;
+
 import command.Command;
 import command.Direction;
 import command.Gear;
@@ -33,9 +50,55 @@ public class ControlDeveloper {
 	static Command[] commands = new Command[counter];
 	static CommandList commandList;
 
-	public static void main(String[] args) {
+	public static void main(String[] args){
+		JFrame mainFrame = new JFrame("Control-Developer");
 		
+		//menu
+		ControlDeveloperMenuBar menu = new ControlDeveloperMenuBar(new ControlDeveloperView());
+		mainFrame.setJMenuBar(menu);
+		
+		//prototypen
+		String[] types = {"Direction","Gear","Repetition","Pause"};
+		JList prototypeList = new JList(types);
+		JScrollPane prototypeScroll = new JScrollPane(prototypeList, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
+		mainFrame.add(prototypeScroll);
+		
+		//Programmablauf
+		
+		
+		mainFrame.setSize( 700,500 );
+		mainFrame.setVisible(true);
+
+		
+		
+		
+//		GridBagLayout gb = new GridBagLayout();
+//		GridBagConstraints c = new GridBagConstraints();
+//		
+////		f.add(new JMenu(), c);
+//		f.add(new JScrollPane(), c);
+//		f.add(new JEditorPane(), c);
+//		f.add(new JScrollPane(), c);
+		
+		
+//		ControlDeveloperView	cdV = new ControlDeveloperView();
+//		PrototypeScrollView		pSV	= new PrototypeScrollView(null);
+//		
+//		pSV.setVisible(true);
+//		pSV.pack();
+//		pSV.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		cdV.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+//		cdV.pack();
+		
+
 	}
+	
+	
+	
+	
+	
+	
+	
 /*	
 //Main 	Blatt 2
 	public static void main(String[] args) {
