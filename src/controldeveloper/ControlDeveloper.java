@@ -14,6 +14,7 @@ import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.GridBagConstraints;
 import java.awt.GridBagLayout;
+import java.awt.GridLayout;
 
 import javax.swing.JEditorPane;
 import javax.swing.JFrame;
@@ -23,9 +24,15 @@ import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
+import javax.swing.JTable;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.border.Border;
 import javax.swing.border.LineBorder;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
+import javax.swing.table.DefaultTableModel;
 
 import command.Command;
 import command.Direction;
@@ -33,6 +40,7 @@ import command.Gear;
 import command.Pause;
 import command.Repetition;
 import commandlist.CommandList;
+import controlmodel.ControlModel;
 
 // modifizierer static: methode kann aufgerufen werden,
 // ohne dass davor ein objekt der Klasse erzeugt werden muss
@@ -50,25 +58,132 @@ public class ControlDeveloper {
 	static Command[] commands = new Command[counter];
 	static CommandList commandList;
 
+	
+	
+	//header der verketteten liste:
+//	static final String[] listHeader = {"No.", "Command", "Configuration"};
+//	static DefaultTableModel clTM = new DefaultTableModel(listHeader, 0);
+//	static CommandListTable 	clT = new CommandListTable(clTM);
+	
 	public static void main(String[] args){
+		JFrame mainFrame = new JFrame("ControlDeveloper");
+		ControlModel cm = ControlModel.getInstance();
+		cm.createCommandTypes();
+		
+		//menu
+		ControlDeveloperMenuBar menu = new ControlDeveloperMenuBar(new ControlDeveloperView());
+		mainFrame.setJMenuBar(menu);
+		mainFrame.setLayout(new BorderLayout());
+		
+		//Prototypen
+		JPanel prototypen = new JPanel();
+		PrototypeListModel pLM = new PrototypeListModel();
+		PrototypeScrollView pSV = new PrototypeScrollView(pLM);
+		prototypen.add(pSV);
+		mainFrame.add(prototypen, BorderLayout.WEST);
+		
+		ConfigurationView config = new ConfigurationView();
+		mainFrame.add(config, BorderLayout.EAST);
+		
+		/*
+		pSV.getList().addListSelectionListener(new ListSelectionListener(){
+			public void valueChanged(ListSelectionEvent e) {
+				if(!e.getValueIsAdjusting()){
+					if((pLM.setSelectedItem(pSV.getList().getSelectedIndex()).equals("Direction"))){
+						config.l1.setText("Degree:");
+						config.l1.setVisible(true);
+						config.l2.setVisible(false);
+						config.f1.setVisible(true);
+						config.f2.setVisible(false);
+					}
+					else if((pLM.setSelectedItem(pSV.getList().getSelectedIndex()).equals("Repetition"))){
+						config.l1.setText("Nr Steps:");
+						config.l2.setText("Nr Repetitions");
+						config.l1.setVisible(true);
+						config.l2.setVisible(true);
+						config.f1.setVisible(true);
+						config.f2.setVisible(true);
+					}
+					else if((pLM.setSelectedItem(pSV.getList().getSelectedIndex()).equals("Gear"))){
+						config.l1.setText("Speed:");
+						config.l2.setText("Duration:");
+						config.l1.setVisible(true);
+						config.l2.setVisible(true);
+						config.f1.setVisible(true);
+						config.f2.setVisible(true);
+					}
+					else if((pLM.setSelectedItem(pSV.getList().getSelectedIndex()).equals("Pause"))){
+						config.l1.setText("Duration:");
+						config.l1.setVisible(true);
+						config.l2.setVisible(false);
+						config.f1.setVisible(true);
+						config.f2.setVisible(false);
+					}
+//					ConfigurationView config = new ConfigurationView(pLM.setSelectedItem(pSV.getList().getSelectedIndex()));
+//					configPanel.add(config);
+//					mainFrame.add(configPanel, BorderLayout.EAST);
+				}
+					
+			}			
+		});
+		*/
+		
+		
+		//Liste
+
+		final String[] listHeader = {"No.", "Command", "Configuration"};
+		DefaultTableModel clTM = new DefaultTableModel(listHeader, 0);
+		CommandListTable clT = new CommandListTable(clTM);
+		JPanel liste = new JPanel();
+		liste.add(clT);
+		mainFrame.add(liste, BorderLayout.CENTER);
+		
+
+		
+		
+		
+		//Ausgabe textfeld
+		JTextArea ausgabe = new JTextArea(5,20);
+		ausgabe.setEditable(false);
+		ausgabe.setLineWrap(true);
+		ausgabe.setWrapStyleWord(true);
+		ausgabe.setText("Lönz du spacko");
+		JScrollPane ausgabeScroll = new JScrollPane(ausgabe);
+		mainFrame.add(ausgabeScroll, BorderLayout.SOUTH);
+		
+		mainFrame.pack();
+//		mainFrame.setSize( 700,500 );
+		mainFrame.setVisible(true);
+		mainFrame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE );
+		
+		
+		
+		
+		
+		
+		/* erster Versuch
 		JFrame mainFrame = new JFrame("Control-Developer");
 		
 		//menu
 		ControlDeveloperMenuBar menu = new ControlDeveloperMenuBar(new ControlDeveloperView());
 		mainFrame.setJMenuBar(menu);
 		
-		//prototypen
+		//prototypen -> noch eigene klasse machen
 		String[] types = {"Direction","Gear","Repetition","Pause"};
 		JList prototypeList = new JList(types);
 		JScrollPane prototypeScroll = new JScrollPane(prototypeList, ScrollPaneConstants.VERTICAL_SCROLLBAR_AS_NEEDED, ScrollPaneConstants.HORIZONTAL_SCROLLBAR_AS_NEEDED);
 		mainFrame.add(prototypeScroll);
 		
 		//Programmablauf
+		clT.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		clT.pack();
+		clT.setVisible(true);
 		
 		
-		mainFrame.setSize( 700,500 );
+		mainFrame.pack();
+//		mainFrame.setSize( 700,500 );
 		mainFrame.setVisible(true);
-
+		*/
 		
 		
 		
@@ -90,7 +205,7 @@ public class ControlDeveloper {
 //		cdV.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 //		cdV.pack();
 		
-
+		
 	}
 	
 	
