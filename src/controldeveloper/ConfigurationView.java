@@ -10,6 +10,8 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 
 public class ConfigurationView extends JPanel {
 	JButton save = new JButton("save");
@@ -42,6 +44,18 @@ public class ConfigurationView extends JPanel {
 		JPanel p1=new JPanel (new FlowLayout(FlowLayout.RIGHT));
 		p1.add(save);
 	
+		CommandListView.t.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
+			@Override
+			public void valueChanged(ListSelectionEvent arg0) {
+				if(CommandListView.t.getValueAt(CommandListView.t.getSelectedRow(), 1).equals("Direction")){
+					l1.setText("Degree:");
+					p3.setVisible(true);	
+					p4.setVisible(false);
+				}
+			}
+			
+		});
+		
 		// ab hier unterscheidung was ausgewählt ist in Table model
 //		if("Direction"){
 //			l1.setText("Degree:");
@@ -73,8 +87,10 @@ public class ConfigurationView extends JPanel {
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				// TODO Auto-generated method stub
-				
+				if(l1.getText().equals("Degree:")){
+					CommandListView.aTM.setValueAt(Integer.parseInt(f1.getText()), 0,CommandListView.t.getSelectedRow());
+
+				}
 			}
 			
 			

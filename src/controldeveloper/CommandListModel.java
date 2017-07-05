@@ -3,6 +3,7 @@ package controldeveloper;
 
 import javax.swing.table.AbstractTableModel;
 
+import command.Direction;
 import commandlist.CommandList;
 import controlmodel.ControlModel;
 import java.util.Vector;
@@ -41,7 +42,7 @@ public class CommandListModel extends AbstractTableModel {
 			return list.get(row).getName();
 		}
 		else if (column == 2){
-			return list.get(row).toString();
+			return list.get(row);
 		}
 		else return "error";
 	}
@@ -50,9 +51,12 @@ public class CommandListModel extends AbstractTableModel {
 		return columnHeader[column];
 	}
 
-//	public void setValueAt(Object value, int row, int column){
-//		
-//	}
+	public void setValueAt(int value1,int value2, int row){
+		if(ControlModel.getInstance().getControlProcess().get(row).getName().equals("Direction")){
+			((Direction)ControlModel.getInstance().getControlProcess().get(row)).setDegree(value1);
+			fireTableDataChanged();
+		}
+	}
 	
 //	public void addRow(){
 //		rowCount++;
