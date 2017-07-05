@@ -30,13 +30,13 @@ public class ConfigurationView extends JPanel {
 		JPanel p3=new JPanel(new FlowLayout(FlowLayout.RIGHT));
 		p3.add(l1);
 		p3.add(f1);
-		p3.setVisible(true);
+		p3.setVisible(false);
 		
 		//untere Spalte
 		JPanel p4=new JPanel(new FlowLayout(FlowLayout.RIGHT));
 		p4.add(l2);
 		p4.add(f2);
-		p4.setVisible(true);
+		p4.setVisible(false);
 		
 		//untere Leiste mit save Button
 		JPanel p1=new JPanel (new FlowLayout(FlowLayout.RIGHT));
