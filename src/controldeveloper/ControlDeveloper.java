@@ -49,7 +49,9 @@ public class ControlDeveloper {
 		//Layout
 		mainFrame.setLayout(new BorderLayout());
 		
-		
+		CommandListModel cLM = new CommandListModel();
+		CommandListView cLV = new CommandListView(cLM);
+		mainFrame.add(cLV, BorderLayout.CENTER);
 		
 		PrototypeListModel pLM= new PrototypeListModel();
 		PrototypeView pV=new PrototypeView(pLM);
