@@ -17,7 +17,7 @@ import javax.swing.event.ListSelectionListener;
 @SuppressWarnings("serial")
 public class CommandListView extends JPanel {
 	private JTable t = new JTable();
-	CommandListModel aTM = null;
+	static CommandListModel aTM = null;
 	private JButton remove = new JButton("remove");
 	private JButton up = new JButton("up");
 	private JButton down = new JButton("down");
@@ -45,13 +45,12 @@ public class CommandListView extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 			}
-			
 		});
 		
 		up.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				aTM.changed();
 			}
 			
 		});

@@ -289,4 +289,14 @@ public class CommandList {
 			this.clearCommandList();
 		}
 	}
+
+	public int getLength() {
+		int i = 0;
+		Element hilfszeiger = this.root;
+		while (hilfszeiger != null){
+			hilfszeiger = hilfszeiger.getNext();
+			i++;
+		}
+		return i;
+	}
 }

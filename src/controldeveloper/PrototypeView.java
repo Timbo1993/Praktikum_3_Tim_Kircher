@@ -54,13 +54,18 @@ public class PrototypeView extends JPanel{
 				
 				if ((lM.setSelectedItem(l.getSelectedIndex()).equals("Direction")))	{
 					System.out.println("yuhuu");
-					ControlModel.getInstance().getControlProcess().add(
-							ControlModel.getInstance().getCommandTypes()[0].createInstance()
-					);
+//					ControlModel.getInstance().getControlProcess().add(
+//							ControlModel.getInstance().getCommandTypes()[0].createInstance()
+//					);
+					CommandListView.aTM.list.add(ControlModel.getInstance().getCommandTypes()[0].createInstance());
 					
 					
 				}
+				CommandListView.aTM.fireTableDataChanged();
 				
+				ControlModel.getInstance().getControlProcess().printCommandList();
+				
+				System.out.println(ControlModel.getInstance().getControlProcess().getLength());
 			}
 			
 		});
