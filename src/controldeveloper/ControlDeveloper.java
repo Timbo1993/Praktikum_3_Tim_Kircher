@@ -59,6 +59,15 @@ public class ControlDeveloper {
 		
 		
 		
+		
+		
+		
+		//Configuration
+		ConfigurationView cV=new ConfigurationView();
+		mainFrame.add(cV,BorderLayout.EAST);
+		
+		
+		
 		mainFrame.pack();
 		mainFrame.setVisible(true);
 		mainFrame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
