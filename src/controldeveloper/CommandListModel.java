@@ -4,6 +4,9 @@ package controldeveloper;
 import javax.swing.table.AbstractTableModel;
 
 import command.Direction;
+import command.Gear;
+import command.Pause;
+import command.Repetition;
 import commandlist.CommandList;
 import controlmodel.ControlModel;
 import java.util.Vector;
@@ -51,9 +54,23 @@ public class CommandListModel extends AbstractTableModel {
 		return columnHeader[column];
 	}
 
-	public void setValueAt(int value1,int value2, int row){
+	public void setValueAt(String value1,String value2, int row){
 		if(ControlModel.getInstance().getControlProcess().get(row).getName().equals("Direction")){
-			((Direction)ControlModel.getInstance().getControlProcess().get(row)).setDegree(value1);
+			((Direction)ControlModel.getInstance().getControlProcess().get(row)).setDegree(Integer.parseInt(value1));
+			fireTableDataChanged();
+		}
+		else if (ControlModel.getInstance().getControlProcess().get(row).getName().equals("Gear")){
+			((Gear)ControlModel.getInstance().getControlProcess().get(row)).setSpeed(Integer.parseInt(value1));
+			((Gear)ControlModel.getInstance().getControlProcess().get(row)).setDuration(Double.parseDouble(value2));
+			fireTableDataChanged();
+		}
+		else if (ControlModel.getInstance().getControlProcess().get(row).getName().equals("Repetition")){
+			((Repetition)ControlModel.getInstance().getControlProcess().get(row)).setNrSteps(Integer.parseInt(value1));
+			((Repetition)ControlModel.getInstance().getControlProcess().get(row)).setNrRepetitions(Integer.parseInt(value2));
+			fireTableDataChanged();
+		}
+		else if (ControlModel.getInstance().getControlProcess().get(row).getName().equals("Pause")){
+			((Pause)ControlModel.getInstance().getControlProcess().get(row)).setDuration(Double.parseDouble(value1));
 			fireTableDataChanged();
 		}
 	}

@@ -14,6 +14,8 @@ import javax.swing.JTable;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+import controlmodel.ControlModel;
+
 @SuppressWarnings("serial")
 public class CommandListView extends JPanel {
 	 static JTable t = new JTable();
@@ -44,12 +46,22 @@ public class CommandListView extends JPanel {
 		remove.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
+				ControlModel.getInstance().getControlProcess().remove(t.getSelectedRow());
+				
+				CommandListView.aTM.fireTableDataChanged();
+				//System.out.println(ControlModel.getInstance().getControlProcess().getLength());
+			
 			}
 		});
 		
 		up.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
+				ControlModel.getInstance().getControlProcess().moveUp(t.getSelectedRow());
+				CommandListView.aTM.fireTableDataChanged();
+				
 			}
 			
 		});
@@ -57,6 +69,9 @@ public class CommandListView extends JPanel {
 		down.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
+				
+				ControlModel.getInstance().getControlProcess().moveDown(t.getSelectedRow());
+				CommandListView.aTM.fireTableDataChanged();
 				
 			}
 			

@@ -44,43 +44,53 @@ public class ConfigurationView extends JPanel {
 		JPanel p1=new JPanel (new FlowLayout(FlowLayout.RIGHT));
 		p1.add(save);
 	
+		// ab hier unterscheidung was ausgewählt ist in Table model
 		CommandListView.t.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
 			@Override
 			public void valueChanged(ListSelectionEvent arg0) {
+				
+				
+				
+				
+				
+				//sobald man was ausgewählt und gesafet hat kommt automatisch die Konfiguration des ersten Elementes
+				// aussgewählt lassen wenn man es verschiebt?
+				// wenn nur ein element dann kann man es nicht mehr löschen?
+				//Falls nur einer von zwei Textfelden beschrieben wird  funktioniert es nicht
+				
+				
+				
+				f1.setText("");
+				f2.setText("");		//leeren der Textfelder, falls man nicht auuf save drückt
+				
+				
+				
 				if(CommandListView.t.getValueAt(CommandListView.t.getSelectedRow(), 1).equals("Direction")){
 					l1.setText("Degree:");
 					p3.setVisible(true);	
 					p4.setVisible(false);
 				}
+				else if (CommandListView.t.getValueAt(CommandListView.t.getSelectedRow(), 1).equals("Gear")){
+					l1.setText("Speed:");
+					p3.setVisible(true);
+					l2.setText("Duration: ");
+					p4.setVisible(true);
+				}
+				else if (CommandListView.t.getValueAt(CommandListView.t.getSelectedRow(), 1).equals("Repetition")){
+					l1.setText("Nr Steps:");
+					p3.setVisible(true);
+					l2.setText("Nr Repetitions: ");
+					p4.setVisible(true);
+				}
+				else if (CommandListView.t.getValueAt(CommandListView.t.getSelectedRow(), 1).equals("Pause")){
+					l1.setText("Duration:");
+					p3.setVisible(true);
+					p4.setVisible(false);
+				}
+				
 			}
 			
 		});
-		
-		// ab hier unterscheidung was ausgewählt ist in Table model
-//		if("Direction"){
-//			l1.setText("Degree:");
-//			p3.setVisible(true);	
-//			p4.setVisible(false);
-//		}
-//		else if("Gear"){
-//			l1.setText("Speed:");
-//			l2.setText("Duration:");
-//			p3.setVisible(true);
-//			p4.setVisible(true);
-//		}
-//		else if("Pause"){
-//			l1.setText("Duration:");
-//			p3.setVisible(true);
-//			p4.setVisible(false);
-//		}
-//		else if("Repetition"){
-//			l1.setText("Nr Steps:");
-//			l2.setText("Nr Repetitions");
-//			p3.setVisible(true);
-//			p4.setVisible(true);
-//		}
-		
-		
 		
 		
 		save.addActionListener(new ActionListener(){
@@ -88,11 +98,21 @@ public class ConfigurationView extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				if(l1.getText().equals("Degree:")){
-					CommandListView.aTM.setValueAt(Integer.parseInt(f1.getText()), 0,CommandListView.t.getSelectedRow());
-
+					CommandListView.aTM.setValueAt(f1.getText(), f2.getText(),CommandListView.t.getSelectedRow());
+					}
+				else if(l1.getText().equals("Speed:") ){
+					CommandListView.aTM.setValueAt(f1.getText(), f2.getText(), CommandListView.t.getSelectedRow());
 				}
+				else if(l1.getText().equals("Nr Steps:") ){
+					CommandListView.aTM.setValueAt(f1.getText(), f2.getText(), CommandListView.t.getSelectedRow());
+				}
+				else if(l1.getText().equals("Duration:") ){
+					CommandListView.aTM.setValueAt(f1.getText(), f2.getText(), CommandListView.t.getSelectedRow());
+				}
+				
+				f1.setText("");
+				f2.setText("");
 			}
-			
 			
 			
 		});
