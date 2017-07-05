@@ -51,6 +51,11 @@ public class ControlDeveloper {
 		
 		
 		
+		PrototypeListModel pLM= new PrototypeListModel();
+		PrototypeView pV=new PrototypeView(pLM);
+		mainFrame.add (pV, BorderLayout.WEST);
+		
+		
 		
 		mainFrame.pack();
 		mainFrame.setVisible(true);
