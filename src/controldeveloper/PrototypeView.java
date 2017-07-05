@@ -6,10 +6,16 @@ import javax.swing.JViewport;
 //import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
 
+import controlmodel.ControlModel;
+
+//import praktikum_tim.PrototypeListModel;
+
 import java.awt.BorderLayout;
 import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.Font;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 import javax.swing.JButton;
 import javax.swing.JLabel;
@@ -18,7 +24,7 @@ import javax.swing.JList;
 public class PrototypeView extends JPanel{
 	private PrototypeListModel lM=null;
 	private	JList<String> l = new JList<String>();
-	//private JButton add =new JButton("add");
+	private JButton add =new JButton("add");
 	
 	
 
@@ -39,10 +45,29 @@ public class PrototypeView extends JPanel{
 		JLabel label=new JLabel("Prototypes", JLabel.CENTER);
 		label.setFont(label.getFont().deriveFont(Font.ITALIC));
 		
-		
+		//l.setMinimumSize(minimumSize());
 	
+		add.addActionListener(new ActionListener(){
+
+			@Override
+			public void actionPerformed(ActionEvent arg0) {
+				
+				if ((lM.setSelectedItem(l.getSelectedIndex()).equals("Direction")))	{
+					System.out.println("yuhuu");
+					ControlModel.getInstance().getControlProcess().add(
+							ControlModel.getInstance().getCommandTypes()[0].createInstance()
+					);
+					
+					
+				}
+				
+			}
+			
+		});
+		
 		JPanel p1=new JPanel (new FlowLayout(FlowLayout.RIGHT));
-		p1.add(new JButton("add"));
+		p1.add(add);
+		
 	
 	
 	//header bleibt beim scrollen immer sichtbar

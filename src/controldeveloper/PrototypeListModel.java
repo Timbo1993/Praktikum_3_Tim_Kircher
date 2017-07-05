@@ -12,12 +12,12 @@ public class PrototypeListModel {
 	
 	
 	
-	public void setSelectedItem(int index){
+	public String setSelectedItem (int index){
 		if (index < 0 || index > types.length)
-			return;
+			return "error";
 		
 		this.index=index;
-		System.out.println(types[this.index]);
+		return types[this.index];
 	}
 
 }
