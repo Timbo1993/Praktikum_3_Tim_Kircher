@@ -51,7 +51,6 @@ public class PrototypeView extends JPanel{
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
-				
 				if ((lM.setSelectedItem(l.getSelectedIndex()).equals("Direction")))	{
 					System.out.println("yuhuu");
 //					ControlModel.getInstance().getControlProcess().add(

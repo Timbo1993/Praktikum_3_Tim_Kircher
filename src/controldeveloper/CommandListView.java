@@ -46,21 +46,32 @@ public class CommandListView extends JPanel {
 		remove.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
-				ControlModel.getInstance().getControlProcess().remove(t.getSelectedRow());
-				
+				int merker = t.getSelectedRow();
+				aTM.delRow(t.getSelectedRow());				
 				CommandListView.aTM.fireTableDataChanged();
-				//System.out.println(ControlModel.getInstance().getControlProcess().getLength());
-			
+				
+				if(ControlModel.getInstance().getControlProcess().getLength()>=1){
+					if(merker == 0)
+						t.setRowSelectionInterval(0, 0);
+					else
+						t.setRowSelectionInterval(merker-1, merker-1);
+
+				}
 			}
 		});
 		
 		up.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				int merker = t.getSelectedRow();
+
 				ControlModel.getInstance().getControlProcess().moveUp(t.getSelectedRow());
 				CommandListView.aTM.fireTableDataChanged();
+				
+				if (merker == 0)
+					t.setRowSelectionInterval(0, 0);
+				else 
+					t.setRowSelectionInterval(merker-1, merker-1);
 				
 			}
 			
@@ -69,10 +80,14 @@ public class CommandListView extends JPanel {
 		down.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				int merker = t.getSelectedRow();
 				ControlModel.getInstance().getControlProcess().moveDown(t.getSelectedRow());
 				CommandListView.aTM.fireTableDataChanged();
 				
+				if(merker == ControlModel.getInstance().getControlProcess().getLength()-1)
+					t.setRowSelectionInterval(merker, merker);
+				else
+					t.setRowSelectionInterval(merker+1, merker+1);
 			}
 			
 		});
@@ -95,7 +110,8 @@ public class CommandListView extends JPanel {
 		
 		
 		setLayout(new BorderLayout());
-		add(new JScrollPane(t), BorderLayout.CENTER);
+		add(new JScrollPane(t, JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED, JScrollPane.HORIZONTAL_SCROLLBAR_AS_NEEDED
+				), BorderLayout.CENTER);
 		
 		
 		JPanel p = new JPanel();

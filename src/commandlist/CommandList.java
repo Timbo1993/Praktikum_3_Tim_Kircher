@@ -120,20 +120,23 @@ public class CommandList {
 		int counter = 0;
 		boolean isInList = true;
 		
-		while (counter < pos && isInList){
-			if (hilfszeiger.getNext() != null){
-				hilfszeiger = hilfszeiger.getNext();
-				counter++;
+		if(this.root != null){
+			while (counter < pos && isInList){
+				if (hilfszeiger.getNext() != null){
+					hilfszeiger = hilfszeiger.getNext();
+					counter++;
+				}
+				else{
+					isInList = false;
+//					System.out.println("List does not have the position " + pos);
+					System.out.println("\n");
+					return null;
+				}
 			}
-			else{
-				isInList = false;
-//				System.out.println("List does not have the position " + pos);
-				System.out.println("\n");
-				return null;
-			}
-		}
 		
-		return hilfszeiger.getElement();
+			return hilfszeiger.getElement();
+		}
+		else return null;
 	}
 	
 	/**
@@ -173,12 +176,22 @@ public class CommandList {
 		
 		if (isInList){
             if (pos == 1){
-    			hilfszeiger.getPrev().setNext (hilfszeiger.getNext());
-    			hilfszeiger.getNext().setPrev(hilfszeiger.getPrev());;
-    			hilfszeiger.setNext(hilfszeiger.getPrev());
-    			hilfszeiger.getNext().setPrev(hilfszeiger);
-    			hilfszeiger.setPrev(null);
-    			this.root = hilfszeiger;
+            	if(hilfszeiger.getNext() == null){
+            		
+            		hilfszeiger.setNext(hilfszeiger.getPrev());
+            		hilfszeiger.setPrev(null);
+            		hilfszeiger.getNext().setPrev(hilfszeiger);
+            		hilfszeiger.getNext().setNext(null);
+            		this.root = hilfszeiger;
+            	}
+            	else{
+            		hilfszeiger.getPrev().setNext (hilfszeiger.getNext());
+    				hilfszeiger.getNext().setPrev(hilfszeiger.getPrev());;
+    				hilfszeiger.setNext(hilfszeiger.getPrev());
+    				hilfszeiger.getNext().setPrev(hilfszeiger);
+    				hilfszeiger.setPrev(null);
+    				this.root = hilfszeiger;
+            	}
             }
             else if(hilfszeiger.getNext()==null){
            		hilfszeiger.setNext(hilfszeiger.getPrev ());
@@ -238,12 +251,21 @@ public class CommandList {
 		
 		if(isInList){
 			if (pos == 0){
-				this.root = hilfszeiger.getNext();
-				hilfszeiger.setPrev(hilfszeiger.getNext());
-				hilfszeiger.setNext(hilfszeiger.getPrev().getNext());
-				hilfszeiger.getNext().setPrev(hilfszeiger);
-				hilfszeiger.getPrev().setNext(hilfszeiger);
-				hilfszeiger.getPrev().setPrev(null);
+				if(hilfszeiger.getNext().getNext()== null){
+					this.root = hilfszeiger.getNext();
+					hilfszeiger.setPrev(hilfszeiger.getNext());
+					hilfszeiger.getNext().setNext(hilfszeiger);
+					hilfszeiger.getPrev().setPrev(null);
+					hilfszeiger.setNext(null);
+				}
+				else{
+					this.root = hilfszeiger.getNext();
+					hilfszeiger.setPrev(hilfszeiger.getNext());
+					hilfszeiger.setNext(hilfszeiger.getPrev().getNext());
+					hilfszeiger.getNext().setPrev(hilfszeiger);
+					hilfszeiger.getPrev().setNext(hilfszeiger);
+					hilfszeiger.getPrev().setPrev(null);
+				}
 			}
 			else if(hilfszeiger.getNext().getNext()== null){
 				hilfszeiger.getNext().setNext(hilfszeiger);

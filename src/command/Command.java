@@ -46,7 +46,9 @@ public abstract class Command implements ICommand{
 	 */
 	@Override
 	public String getName(){
-		return name;
+		if(name != null)
+			return name;
+		else return null;
 	}
 		
 }

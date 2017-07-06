@@ -15,7 +15,7 @@ import java.util.Vector;
 @SuppressWarnings("serial")
 public class CommandListModel extends AbstractTableModel {
 	static final String[] columnHeader= {"No.", "Command", "Configuration"};
-	private int rowCount = 0;
+//	private int rowCount = 0;
 //	private Vector<Vector<String>> rows = new Vector<Vector<String>>();
 	CommandList list = ControlModel.getInstance().getControlProcess();
 	
@@ -42,7 +42,10 @@ public class CommandListModel extends AbstractTableModel {
 			return row+1;
 		}
 		else if (column == 1){
-			return list.get(row).getName();
+			if(list.get(row)== null)
+				return "error";
+			else
+				return list.get(row).getName();
 		}
 		else if (column == 2){
 			return list.get(row);
@@ -87,4 +90,14 @@ public class CommandListModel extends AbstractTableModel {
 		      return false;
 		    return true;
 	}
+	
+	  public void delRow(int row){
+		    if (row<0 || row>=list.getLength())
+		      return;
+
+		    ControlModel.getInstance().getControlProcess().remove(row);
+
+//		    fireTableDataChanged();
+		    fireTableRowsDeleted(row, row);
+		  }
 }

@@ -41,6 +41,9 @@ public class ControlDeveloper {
 		ControlModel cm = ControlModel.getInstance();
 		cm.createCommandTypes();
 		
+
+
+		
 		//Menü
 		ControlDeveloperMenuBar menu = new ControlDeveloperMenuBar(new ControlDeveloperView());
 		mainFrame.setJMenuBar(menu);
