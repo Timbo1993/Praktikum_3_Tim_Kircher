@@ -307,6 +307,9 @@ public class CommandList {
 	 * deletes the whole {@link CommandList}
 	 */
 	public void clearCommandList(){
+		if(this.root==null)
+			return;
+		else
 		if(this.remove(0) == true){
 			this.clearCommandList();
 		}

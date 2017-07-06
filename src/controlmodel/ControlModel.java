@@ -20,6 +20,7 @@ import command.Pause;
 import command.Repetition;
 import commandlist.CommandList;
 import commandtype.CommandType;
+import hsrt.mec.controldeveloper.core.com.ComHandler;
 import hsrt.mec.controldeveloper.core.com.IComListener;
 import hsrt.mec.controldeveloper.core.com.command.ICommand;
 import hsrt.mec.controldeveloper.io.IOType;
@@ -39,6 +40,7 @@ public class ControlModel implements IComListener{
 	 * Default constructor
 	 */
 	private ControlModel(){
+		ComHandler.getInstance().register(this);
 	}
 	
 	/**
@@ -77,7 +79,7 @@ public class ControlModel implements IComListener{
 	 */
 	@SuppressWarnings({ "rawtypes", "unchecked" })
 	public boolean load(File f){
-		controlProcess = new CommandList();
+		controlProcess.clearCommandList();
 		Vector data = new Vector();
 		TextFile txt = new TextFile(f, false);
 		boolean success = (txt.read(data) && txt.close());	//Speichert Inhalt der Textdatei im Vektor, jede Zeile ist ein "Inhalt des vektors"
