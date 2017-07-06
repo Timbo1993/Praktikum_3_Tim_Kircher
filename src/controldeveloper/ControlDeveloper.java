@@ -72,13 +72,8 @@ public class ControlDeveloper {
 		
 		
 		//Ausgabe textfeld
-		JTextArea ausgabe = new JTextArea(5,20);
-		ausgabe.setEditable(false);
-		ausgabe.setLineWrap(true);
-		ausgabe.setWrapStyleWord(true);
-		ausgabe.setText("Lönz du spacko");
-		JScrollPane ausgabeScroll = new JScrollPane(ausgabe);
-		mainFrame.add(ausgabeScroll, BorderLayout.SOUTH);
+		AusgabeView aV=new AusgabeView();
+		mainFrame.add(aV, BorderLayout.SOUTH);
 		
 		
 		mainFrame.pack();

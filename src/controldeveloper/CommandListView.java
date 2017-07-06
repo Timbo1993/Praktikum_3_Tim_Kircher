@@ -95,6 +95,12 @@ public class CommandListView extends JPanel {
 		start.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
+			
+				for(int i=0; i < ControlModel.getInstance().getControlProcess().getLength();i++ ){
+					System.out.println(t.getValueAt(i,2));
+//					ausgabe.append((String) t.getValueAt(i, 2)) ; 
+//					ausgabe.append("\n"); 
+				}
 				
 			}
 			
