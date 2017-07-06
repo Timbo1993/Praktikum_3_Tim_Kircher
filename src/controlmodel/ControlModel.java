@@ -20,6 +20,8 @@ import command.Pause;
 import command.Repetition;
 import commandlist.CommandList;
 import commandtype.CommandType;
+import hsrt.mec.controldeveloper.core.com.IComListener;
+import hsrt.mec.controldeveloper.core.com.command.ICommand;
 import hsrt.mec.controldeveloper.io.IOType;
 import hsrt.mec.controldeveloper.io.TextFile;
 
@@ -27,7 +29,7 @@ import hsrt.mec.controldeveloper.io.TextFile;
  * Class for central management of the {@link CommandList} and the Array of {@link CommandType}s
  *
  */
-public class ControlModel{
+public class ControlModel implements IComListener{
 	
 	private static ControlModel instance = null;
 	private CommandType[] commandTypes = new CommandType[4];
@@ -153,6 +155,12 @@ public class ControlModel{
 //			
 //		}
 		return controlProcess;
+	}
+
+	@Override
+	public void commandPerformed(ICommand arg0) {
+		// TODO Auto-generated method stub
+		
 	}
 	
 }
