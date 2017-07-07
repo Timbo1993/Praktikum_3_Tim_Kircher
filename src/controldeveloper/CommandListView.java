@@ -16,8 +16,6 @@ import javax.swing.JTable;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
-import controlmodel.ControlModel;
-
 /**
  * View Class for the Table with the {@link CommandList} and the buttons for the control
  *

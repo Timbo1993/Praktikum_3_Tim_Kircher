@@ -6,8 +6,6 @@ import javax.swing.JViewport;
 //import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
 
-import controlmodel.ControlModel;
-
 //import praktikum_tim.PrototypeListModel;
 
 import java.awt.BorderLayout;

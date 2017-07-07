@@ -32,7 +32,6 @@ import command.Repetition;
 import commandlist.CommandList;
 import controldeveloper.ControlDeveloperMenuBar;
 import controldeveloper.ControlDeveloperView;
-import controlmodel.ControlModel;
 
 public class ControlDeveloper {
 	

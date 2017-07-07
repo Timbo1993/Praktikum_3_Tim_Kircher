@@ -9,7 +9,7 @@
  * @version 1.0
  */ 
 
-package controlmodel;
+package controldeveloper;
 
 import hsrt.mec.controldeveloper.io.SerialUSB;
 
@@ -180,8 +180,7 @@ public class ControlModel implements IComListener{
 
 	@Override
 	public void commandPerformed(ICommand arg0) {
-		// TODO Auto-generated method stub
-		
+		AusgabeView.addText(arg0.toString());
 	}
 	
 }

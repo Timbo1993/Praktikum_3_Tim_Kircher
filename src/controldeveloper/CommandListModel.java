@@ -8,7 +8,7 @@ import command.Gear;
 import command.Pause;
 import command.Repetition;
 import commandlist.CommandList;
-import controlmodel.ControlModel;
+
 import java.util.Vector;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
