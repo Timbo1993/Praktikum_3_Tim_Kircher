@@ -58,16 +58,17 @@ public class CommandListView extends JPanel {
 		remove.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				int merker = t.getSelectedRow();
-				aTM.delRow(t.getSelectedRow());				
-				CommandListView.aTM.fireTableDataChanged();
+				if(t.getSelectedRow()!=-1){
+					int merker = t.getSelectedRow();
+					aTM.delRow(t.getSelectedRow());				
+					CommandListView.aTM.fireTableDataChanged();
 				
-				if(ControlModel.getInstance().getControlProcess().getLength()>=1){
-					if(merker == 0)
-						t.setRowSelectionInterval(0, 0);
-					else
-						t.setRowSelectionInterval(merker-1, merker-1);
-
+					if(ControlModel.getInstance().getControlProcess().getLength()>=1){
+						if(merker == 0)
+							t.setRowSelectionInterval(0, 0);
+						else
+							t.setRowSelectionInterval(merker-1, merker-1);
+					}
 				}
 			}
 		});
@@ -78,16 +79,17 @@ public class CommandListView extends JPanel {
 		up.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				int merker = t.getSelectedRow();
+				if(t.getSelectedRow()!=-1){
+					int merker = t.getSelectedRow();
 
-				ControlModel.getInstance().getControlProcess().moveUp(t.getSelectedRow());
-				CommandListView.aTM.fireTableDataChanged();
+					ControlModel.getInstance().getControlProcess().moveUp(t.getSelectedRow());
+					CommandListView.aTM.fireTableDataChanged();
 				
-				if (merker == 0)
-					t.setRowSelectionInterval(0, 0);
-				else 
-					t.setRowSelectionInterval(merker-1, merker-1);
-				
+					if (merker == 0)
+						t.setRowSelectionInterval(0, 0);
+					else 
+						t.setRowSelectionInterval(merker-1, merker-1);
+				}
 			}
 			
 		});
@@ -98,15 +100,18 @@ public class CommandListView extends JPanel {
 		down.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				int merker = t.getSelectedRow();
-				ControlModel.getInstance().getControlProcess().moveDown(t.getSelectedRow());
-				CommandListView.aTM.fireTableDataChanged();
+				if(t.getSelectedRow()!=-1){
+					int merker = t.getSelectedRow();
+					ControlModel.getInstance().getControlProcess().moveDown(t.getSelectedRow());
+					CommandListView.aTM.fireTableDataChanged();
 				
-				if(merker == ControlModel.getInstance().getControlProcess().getLength()-1)
-					t.setRowSelectionInterval(merker, merker);
-				else
-					t.setRowSelectionInterval(merker+1, merker+1);
+					if(merker == ControlModel.getInstance().getControlProcess().getLength()-1)
+						t.setRowSelectionInterval(merker, merker);
+					else
+						t.setRowSelectionInterval(merker+1, merker+1);
+				}
 			}
+				
 			
 		});
 		
@@ -127,6 +132,7 @@ public class CommandListView extends JPanel {
 ////					ausgabe.append((String) t.getValueAt(i, 2)) ; 
 ////					ausgabe.append("\n"); 
 				
+				AusgabeView.ausgabe.setText("");;
 				for (int i=0;i<ControlModel.getInstance().getControlProcess().getLength();i++ ){
 					
 				AusgabeView.addText(t.getValueAt(i, 2).toString());

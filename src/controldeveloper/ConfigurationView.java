@@ -101,48 +101,51 @@ public class ConfigurationView extends JPanel {
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
 				int merker = CommandListView.t.getSelectedRow();
-				if(l1.getText().equals("Degree:")){
-					if(f1.getText().equals("")){
-						CommandListView.aTM.setValueAt("0", f2.getText(),CommandListView.t.getSelectedRow());
-					}
-					else
-						CommandListView.aTM.setValueAt(f1.getText(), f2.getText(),CommandListView.t.getSelectedRow());
-				}
-				else if(l1.getText().equals("Speed:") ){
-					if (f1.getText().equals("")){
-						if(f2.getText().equals(""))
-							CommandListView.aTM.setValueAt("0", "0",CommandListView.t.getSelectedRow());
+				if(merker != -1){
+					if(l1.getText().equals("Degree:")){
+						if(f1.getText().equals("")){
+							CommandListView.aTM.setValueAt("0", f2.getText(),CommandListView.t.getSelectedRow());
+						}
 						else
-						CommandListView.aTM.setValueAt("0", f2.getText(),CommandListView.t.getSelectedRow());
+							CommandListView.aTM.setValueAt(f1.getText(), f2.getText(),CommandListView.t.getSelectedRow());
 					}
-					else if(f2.getText().equals(""))
-						CommandListView.aTM.setValueAt(f1.getText(), "0",CommandListView.t.getSelectedRow());
-					else
+					else if(l1.getText().equals("Speed:") ){
+						if (f1.getText().equals("")){
+							if(f2.getText().equals(""))
+								CommandListView.aTM.setValueAt("0", "0",CommandListView.t.getSelectedRow());
+							else
+								CommandListView.aTM.setValueAt("0", f2.getText(),CommandListView.t.getSelectedRow());
+						}
+						else if(f2.getText().equals(""))
+							CommandListView.aTM.setValueAt(f1.getText(), "0",CommandListView.t.getSelectedRow());
+						else
 						
-					CommandListView.aTM.setValueAt(f1.getText(), f2.getText(), CommandListView.t.getSelectedRow());
-				}
-				else if(l1.getText().equals("Nr Steps:") ){
-					if (f1.getText().equals("")){
-						if(f2.getText().equals(""))
-							CommandListView.aTM.setValueAt("0", "0",CommandListView.t.getSelectedRow());
+							CommandListView.aTM.setValueAt(f1.getText(), f2.getText(), CommandListView.t.getSelectedRow());
+					}
+					else if(l1.getText().equals("Nr Steps:") ){
+						if (f1.getText().equals("")){
+							if(f2.getText().equals(""))
+								CommandListView.aTM.setValueAt("0", "0",CommandListView.t.getSelectedRow());
+							else
+								CommandListView.aTM.setValueAt("0", f2.getText(),CommandListView.t.getSelectedRow());
+						}
+						else if(f2.getText().equals(""))
+							CommandListView.aTM.setValueAt(f1.getText(), "0",CommandListView.t.getSelectedRow());
 						else
-						CommandListView.aTM.setValueAt("0", f2.getText(),CommandListView.t.getSelectedRow());
+							CommandListView.aTM.setValueAt(f1.getText(), f2.getText(), CommandListView.t.getSelectedRow());
 					}
-					else if(f2.getText().equals(""))
-						CommandListView.aTM.setValueAt(f1.getText(), "0",CommandListView.t.getSelectedRow());
-					else
-					CommandListView.aTM.setValueAt(f1.getText(), f2.getText(), CommandListView.t.getSelectedRow());
-				}
-				else if(l1.getText().equals("Duration:") ){
-					if(f1.getText().equals("")){
-						CommandListView.aTM.setValueAt("0", f2.getText(),CommandListView.t.getSelectedRow());
+					else if(l1.getText().equals("Duration:") ){
+						if(f1.getText().equals("")){
+							CommandListView.aTM.setValueAt("0", f2.getText(),CommandListView.t.getSelectedRow());
+						}
+						else
+							CommandListView.aTM.setValueAt(f1.getText(), f2.getText(), CommandListView.t.getSelectedRow());
 					}
-					else
-					CommandListView.aTM.setValueAt(f1.getText(), f2.getText(), CommandListView.t.getSelectedRow());
+				
+					CommandListView.t.setRowSelectionInterval(merker, merker);
+					f1.setText("");
+					f2.setText("");
 				}
-				CommandListView.t.setRowSelectionInterval(merker, merker);
-				f1.setText("");
-				f2.setText("");
 			}
 			
 			
