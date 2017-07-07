@@ -21,21 +21,21 @@ public class AusgabeView extends JPanel{
 		
 		setLayout(new BorderLayout());
 	
-	ausgabe.setEditable(false);
-	ausgabe.setLineWrap(true);
-	ausgabe.setWrapStyleWord(true);
-//	ausgabe.setText("Lönz du spacko");
-	
-//	for(int i=0;i<10;i++){
+		ausgabe.setEditable(false);
+		ausgabe.setLineWrap(true);
+		ausgabe.setWrapStyleWord(true);
+		add(ausgabeScroll);
+//		for(int i=0;i<10;i++){
 //		t.getValueAt(i, i);
-//	ausgabe.append((String) cLM.getValueAt(i, i)) ; 
-//	ausgabe.append("\n"); 
+//		ausgabe.append((String) cLM.getValueAt(i, i)) ; 
+//		ausgabe.append("\n"); 
 //	}
-	
-	add(ausgabeScroll);
-	
 	}
 	
+	/**
+	 * 
+	 * Adds the @param s to the TextArea 
+	 */
 	public static void addText(String s){
 		ausgabe.append(s+"\n");
 		ausgabeScroll.getVerticalScrollBar().setValue(ausgabeScroll.getVerticalScrollBar().getMaximum()+1);

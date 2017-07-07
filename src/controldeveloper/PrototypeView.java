@@ -21,14 +21,22 @@ import javax.swing.JButton;
 import javax.swing.JLabel;
 import javax.swing.JList;
 
+/**
+ * 
+ * View of the Prototypes of the {@link Commands}
+ *
+ */
 public class PrototypeView extends JPanel{
 	private PrototypeListModel lM=null;
 	private	JList<String> l = new JList<String>();
 	private JButton add =new JButton("add");
 	
-	
 
-
+/**
+ * 
+ * Constructor of {@link PrototypeView}
+ * {@param pLM} Model of the {@link PrototypeListModel}
+ */
 	public PrototypeView (PrototypeListModel pLM){
 		lM=pLM;
 		l.setListData(lM.getItems());
@@ -46,7 +54,10 @@ public class PrototypeView extends JPanel{
 		label.setFont(label.getFont().deriveFont(Font.ITALIC));
 		
 		//l.setMinimumSize(minimumSize());
-	
+	/**
+	 * Action Listener of the Add Button
+	 * Adds the selected Item of the ListModel {@param lM} to the {@param aTM} Table model
+	 */
 		add.addActionListener(new ActionListener(){
 
 			@Override
@@ -68,23 +79,17 @@ public class PrototypeView extends JPanel{
 					CommandListView.aTM.list.add(ControlModel.getInstance().getCommandTypes()[3].createInstance());
 				}
 				
-				
-				
 				CommandListView.aTM.fireTableDataChanged();
-				
 				ControlModel.getInstance().getControlProcess().printCommandList();
-				
 				System.out.println(ControlModel.getInstance().getControlProcess().getLength());
 			}
-			
 		});
 		
 		JPanel p1=new JPanel (new FlowLayout(FlowLayout.RIGHT));
 		p1.add(add);
 		
 	
-	
-	//header bleibt beim scrollen immer sichtbar
+		//header bleibt beim scrollen immer sichtbar
 			JViewport header = new JViewport();
 			header.setView(label);
 			sP.setColumnHeader(header);
@@ -92,7 +97,4 @@ public class PrototypeView extends JPanel{
 			add(sP, BorderLayout.CENTER);
 			add(p1, BorderLayout.SOUTH);
 	}
-	
-	
 }
-// JScrollPane.VERTICAL_SCROLLBAR_{ALWAYS},JScrollPane.HORIZONTAL_SCROLLBAR_{AS_NEEDED});
