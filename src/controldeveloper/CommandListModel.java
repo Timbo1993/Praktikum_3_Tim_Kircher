@@ -1,6 +1,7 @@
 package controldeveloper;
 
 
+import javax.swing.JOptionPane;
 import javax.swing.table.AbstractTableModel;
 
 import command.Direction;
@@ -86,7 +87,7 @@ public class CommandListModel extends AbstractTableModel {
 				i1 = Integer.parseInt(value1);
 			}
 			catch(NumberFormatException e){
-				System.out.println("kein gültiger wert");
+				JOptionPane.showMessageDialog(null, "Please enter an integer for Degree", "Warning", JOptionPane.WARNING_MESSAGE);
 			}
 			((Direction)ControlModel.getInstance().getControlProcess().get(row)).setDegree(i1);
 			fireTableDataChanged();
@@ -96,13 +97,13 @@ public class CommandListModel extends AbstractTableModel {
 				i1 = Integer.parseInt(value1);
 			}
 			catch(NumberFormatException e){
-				System.out.println("kein gültiger wert");
+				JOptionPane.showMessageDialog(null, "Please enter an integer for Speed", "Warning", JOptionPane.WARNING_MESSAGE);
 			}
 			try{
 				d1 = Double.parseDouble(value2);
 			}
 			catch(NumberFormatException e){
-				System.out.println("kein gültiger wert");
+				JOptionPane.showMessageDialog(null, "Please enter a double for Duration", "Warning", JOptionPane.WARNING_MESSAGE);
 			}
 			
 			((Gear)ControlModel.getInstance().getControlProcess().get(row)).setSpeed(i1);
@@ -114,13 +115,13 @@ public class CommandListModel extends AbstractTableModel {
 				i1 = Integer.parseInt(value1);
 			}
 			catch(NumberFormatException e){
-				System.out.println("kein gültiger wert");
+				JOptionPane.showMessageDialog(null, "Please enter an integer for Nr of Steps", "Warning", JOptionPane.WARNING_MESSAGE);
 			}
 			try{
 				i2 = Integer.parseInt(value2);
 			}
 			catch(NumberFormatException e){
-				System.out.println("kein gültiger wert");
+				JOptionPane.showMessageDialog(null, "Please enter an integer for Nr of Repetitions", "Warning", JOptionPane.WARNING_MESSAGE);
 			}
 			
 			((Repetition)ControlModel.getInstance().getControlProcess().get(row)).setNrSteps(i1);
@@ -132,7 +133,7 @@ public class CommandListModel extends AbstractTableModel {
 				d1 = Double.parseDouble(value1);
 			}
 			catch(NumberFormatException e){
-				System.out.println("kein gültiger wert");
+				JOptionPane.showMessageDialog(null, "Please enter an double for Duration", "Warning", JOptionPane.WARNING_MESSAGE);
 			}
 			
 			((Pause)ControlModel.getInstance().getControlProcess().get(row)).setDuration(d1);

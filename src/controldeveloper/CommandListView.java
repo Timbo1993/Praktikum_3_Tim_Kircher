@@ -7,7 +7,13 @@ import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Vector;
+
+import hsrt.mec.controldeveloper.core.com.ComHandler;
+import hsrt.mec.controldeveloper.core.com.ComPortHandler;
 import hsrt.mec.controldeveloper.core.com.command.ICommand;
+import hsrt.mec.controldeveloper.io.Console;
+import hsrt.mec.controldeveloper.io.IOType;
+import hsrt.mec.controldeveloper.io.SerialUSB;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -128,13 +134,15 @@ public class CommandListView extends JPanel {
 //					System.out.println(t.getValueAt(i,2));
 ////					ausgabe.append((String) t.getValueAt(i, 2)) ; 
 ////					ausgabe.append("\n"); 
-				
-				AusgabeView.ausgabe.setText("");;
-				for (int i=0;i<ControlModel.getInstance().getControlProcess().getLength();i++ ){
+				IOType t = new Console();
+				t= new SerialUSB(ComPortHandler.getPorts()[1]);
+				ComHandler.getInstance().start(commands, t);
+//				AusgabeView.ausgabe.setText("");
+//				for (int i=0;i<ControlModel.getInstance().getControlProcess().getLength();i++ ){
 					
-				AusgabeView.addText(t.getValueAt(i, 2).toString());
+//				AusgabeView.addText(t.getValueAt(i, 2).toString());
 				
-				}
+//				}
 			}
 			
 		});
