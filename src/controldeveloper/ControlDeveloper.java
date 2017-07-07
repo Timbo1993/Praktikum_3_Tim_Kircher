@@ -33,12 +33,12 @@ import commandlist.CommandList;
 import controldeveloper.ControlDeveloperMenuBar;
 import controldeveloper.ControlDeveloperView;
 
+@SuppressWarnings("unused")
 public class ControlDeveloper {
 	
 	/**
 	 * Main class, creates the gui elements
 	 */
-	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		JFrame mainFrame = new JFrame("ControlDeveloper");
 		ControlModel cm = ControlModel.getInstance();

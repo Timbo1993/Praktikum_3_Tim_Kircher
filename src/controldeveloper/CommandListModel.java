@@ -154,9 +154,9 @@ public class CommandListModel extends AbstractTableModel {
 	 * 
 	 */
 	public boolean isCellEditable(int rowIndex, int columnIndex) {
-		    if ( columnIndex==0 )
-		      return false;
-		    return true;
+//		    if ( columnIndex==0 )
+//		      return false;
+		    return false;
 	}
 	
 	/**
