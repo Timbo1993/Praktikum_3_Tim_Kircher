@@ -135,7 +135,8 @@ public class CommandListView extends JPanel {
 ////					ausgabe.append((String) t.getValueAt(i, 2)) ; 
 ////					ausgabe.append("\n"); 
 				IOType t = new Console();
-				t= new SerialUSB(ComPortHandler.getPorts()[1]);
+				t= new SerialUSB(ComPortHandler.getPorts()[0]);
+				System.out.println(ComPortHandler.getPorts().toString());
 				ComHandler.getInstance().start(commands, t);
 //				AusgabeView.ausgabe.setText("");
 //				for (int i=0;i<ControlModel.getInstance().getControlProcess().getLength();i++ ){
