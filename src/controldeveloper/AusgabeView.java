@@ -16,7 +16,6 @@ public class AusgabeView extends JPanel{
 	static JScrollPane ausgabeScroll = new JScrollPane(ausgabe);
 
 	
-	
 	public AusgabeView(){
 		
 		setLayout(new BorderLayout());

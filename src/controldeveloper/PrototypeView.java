@@ -3,10 +3,7 @@ package controldeveloper;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JViewport;
-//import javax.swing.ListModel;
 import javax.swing.ListSelectionModel;
-
-//import praktikum_tim.PrototypeListModel;
 
 import java.awt.BorderLayout;
 import java.awt.Color;
@@ -24,8 +21,6 @@ public class PrototypeView extends JPanel{
 	private	JList<String> l = new JList<String>();
 	private JButton add =new JButton("add");
 	
-	
-
 
 	public PrototypeView (PrototypeListModel pLM){
 		lM=pLM;
@@ -80,7 +75,6 @@ public class PrototypeView extends JPanel{
 		JPanel p1=new JPanel (new FlowLayout(FlowLayout.RIGHT));
 		p1.add(add);
 		
-	
 	
 	//header bleibt beim scrollen immer sichtbar
 			JViewport header = new JViewport();

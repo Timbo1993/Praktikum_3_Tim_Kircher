@@ -42,9 +42,6 @@ public class CommandListModel extends AbstractTableModel {
 		return list.getLength();
 	}
 
-//	public void neu(){
-//		
-//	}
 	
 	/**
 	 * Returns the object of a cell of the Table with the Commands

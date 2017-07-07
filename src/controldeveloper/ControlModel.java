@@ -111,7 +111,7 @@ public class ControlModel implements IComListener{
 			//Schleife geht den Vektor durch bis "end" kommt
 			while(data.get(i).toString().equals("end") == false){
 				
-//				String s1 = data.get(i).toString();		//Eine 
+//				String s1 = data.get(i).toString();		/ 
 //				String[] teile = s1.split("\\s");
 				String[] teile = data.get(i).toString().split("\\s");	//teilt immer eine Zeile der Textdatei in bestandteile auf
 				//if(teile[0] == "Direction:"){				// Warum nicht Möglich?

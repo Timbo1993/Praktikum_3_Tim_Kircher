@@ -37,7 +37,6 @@ public class CommandListView extends JPanel {
 	public CommandListView(CommandListModel m){
 		this.aTM = m;
 		
-		
 		t.setModel(aTM);
 	    t.setSelectionForeground( Color.gray );
 	    t.setSelectionBackground( Color.orange );
