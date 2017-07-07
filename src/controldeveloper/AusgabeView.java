@@ -6,6 +6,10 @@ import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 
+/**
+ * Class for the output window
+ *
+ */
 public class AusgabeView extends JPanel{
 
 	JTextArea ausgabe = new JTextArea(5,20);

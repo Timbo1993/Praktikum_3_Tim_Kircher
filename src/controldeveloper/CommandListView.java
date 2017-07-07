@@ -6,6 +6,8 @@ import java.awt.Color;
 import java.awt.FlowLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.Vector;
+import hsrt.mec.controldeveloper.core.com.command.ICommand;
 
 import javax.swing.JButton;
 import javax.swing.JPanel;
@@ -16,6 +18,10 @@ import javax.swing.event.ListSelectionListener;
 
 import controlmodel.ControlModel;
 
+/**
+ * View Class for the Table with the {@link CommandList} and the buttons for the control
+ *
+ */
 @SuppressWarnings("serial")
 public class CommandListView extends JPanel {
 	 static JTable t = new JTable();
@@ -26,7 +32,10 @@ public class CommandListView extends JPanel {
 	private JButton stop = new JButton("stop");
 	private JButton start = new JButton("start");
 
-	
+	/**
+	 * Constructor of the View
+	 * @param m Model of the {@link COmmandList}
+	 */
 	public CommandListView(CommandListModel m){
 		this.aTM = m;
 		
@@ -42,6 +51,9 @@ public class CommandListView extends JPanel {
 			}	    	
 	    });
 	    
+	    /**
+	     * Action LIstener for the remove button
+	     */
 	    //ActionListener als anonyme klassen
 		remove.addActionListener(new ActionListener(){
 			@Override
@@ -60,6 +72,9 @@ public class CommandListView extends JPanel {
 			}
 		});
 		
+		/**
+		 * Action Listener for the up button
+		 */
 		up.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -77,6 +92,9 @@ public class CommandListView extends JPanel {
 			
 		});
 		
+		/**
+		 * Action Listener for the down button
+		 */
 		down.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -92,20 +110,31 @@ public class CommandListView extends JPanel {
 			
 		});
 		
+		/**
+		 * Action LIstener for the start button
+		 */
 		start.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
-			
-				for(int i=0; i < ControlModel.getInstance().getControlProcess().getLength();i++ ){
-					System.out.println(t.getValueAt(i,2));
-//					ausgabe.append((String) t.getValueAt(i, 2)) ; 
-//					ausgabe.append("\n"); 
+				Vector<ICommand> commands = new Vector<ICommand>();
+				
+				for(int i = 0; ControlModel.getInstance().getControlProcess().get(i) != null; i++){
+					commands.addElement(ControlModel.getInstance().getControlProcess().get(i));
 				}
+//				ControlModel.getInstance().comHandler;
+//				for(int i=0; i < ControlModel.getInstance().getControlProcess().getLength();i++ ){
+//					System.out.println(t.getValueAt(i,2));
+////					ausgabe.append((String) t.getValueAt(i, 2)) ; 
+////					ausgabe.append("\n"); 
+				
 				
 			}
 			
 		});
 		
+		/**
+		 * Action Listener for the stop button
+		 */
 		stop.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {

@@ -39,7 +39,7 @@ public class ControlDeveloper {
 	public static void main(String[] args) {
 		JFrame mainFrame = new JFrame("ControlDeveloper");
 		ControlModel cm = ControlModel.getInstance();
-		cm.createCommandTypes();
+//		cm.createCommandTypes();
 		
 
 

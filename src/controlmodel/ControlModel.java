@@ -21,6 +21,7 @@ import command.Repetition;
 import commandlist.CommandList;
 import commandtype.CommandType;
 import hsrt.mec.controldeveloper.core.com.ComHandler;
+import hsrt.mec.controldeveloper.core.com.ComPortHandler;
 import hsrt.mec.controldeveloper.core.com.IComListener;
 import hsrt.mec.controldeveloper.core.com.command.ICommand;
 import hsrt.mec.controldeveloper.io.IOType;
@@ -35,12 +36,18 @@ public class ControlModel implements IComListener{
 	private static ControlModel instance = null;
 	private CommandType[] commandTypes = new CommandType[4];
 	private CommandList controlProcess = new CommandList();
+	private IOType ioObj;
+	private ComHandler comHandler;
+	private ComPortHandler comPortHandler;
+	
 	
 	/**
 	 * Default constructor
 	 */
 	private ControlModel(){
-		ComHandler.getInstance().register(this);
+		this.createCommandTypes();
+		this.comHandler = ComHandler.getInstance();
+		this.comPortHandler = new ComPortHandler();
 	}
 	
 	/**
