@@ -44,7 +44,7 @@ public class ControlDeveloper {
 		ControlModel cm = ControlModel.getInstance();
 //		cm.createCommandTypes();
 		
-
+//hallo
 
 		
 		//Menü
@@ -69,6 +69,7 @@ public class ControlDeveloper {
 		//Configuration
 		ConfigurationView cV=new ConfigurationView();
 		mainFrame.add(cV,BorderLayout.EAST);
+		
 		
 		
 		//Ausgabe textfeld

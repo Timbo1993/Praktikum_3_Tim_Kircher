@@ -50,6 +50,7 @@ public class ControlModel implements IComListener{
 		this.createCommandTypes();
 		this.comHandler = ComHandler.getInstance();
 		this.comPortHandler = new ComPortHandler();
+		comHandler.register(this);
 	}
 	
 	/**
