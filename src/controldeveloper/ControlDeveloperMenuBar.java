@@ -12,16 +12,21 @@ import javax.swing.event.MenuListener;
 
 import controlmodel.ControlModel;
 
+/**
+ * Class for the Menu of the GUI
+ *
+ */
 public class ControlDeveloperMenuBar extends JMenuBar implements ActionListener, MenuListener {
-	/**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+
+//	private static final long serialVersionUID = 1L;
 	ControlDeveloperView	cdv = null;
 	JMenu					m	= null;
 	JMenuItem				mI	= null;
 	File f = new File("D:/beispiel.txt");
 
+	/**
+	 * Consturctor of ControlDeveloperMenuBar
+	 */
 	public ControlDeveloperMenuBar(ControlDeveloperView cdv){
 		this.cdv = cdv;
 		
@@ -59,6 +64,9 @@ public class ControlDeveloperMenuBar extends JMenuBar implements ActionListener,
 	@Override
 	public void menuSelected(MenuEvent arg0) {}
 
+	/**
+	 * Registers which menu item was selected and performs the action
+	 */
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		JMenuItem mI = (JMenuItem) e.getSource();

@@ -35,7 +35,11 @@ import controldeveloper.ControlDeveloperView;
 import controlmodel.ControlModel;
 
 public class ControlDeveloper {
-
+	
+	/**
+	 * Main class, creates the gui elements
+	 */
+	@SuppressWarnings("unused")
 	public static void main(String[] args) {
 		JFrame mainFrame = new JFrame("ControlDeveloper");
 		ControlModel cm = ControlModel.getInstance();
@@ -52,23 +56,20 @@ public class ControlDeveloper {
 		//Layout
 		mainFrame.setLayout(new BorderLayout());
 		
+		//Command List in der mitte mit buttons
 		CommandListModel cLM = new CommandListModel();
 		CommandListView cLV = new CommandListView(cLM);
 		mainFrame.add(cLV, BorderLayout.CENTER);
 		
+		//prototype liste links
 		PrototypeListModel pLM= new PrototypeListModel();
 		PrototypeView pV=new PrototypeView(pLM);
 		mainFrame.add (pV, BorderLayout.WEST);
 		
 		
-		
-		
-		
-		
 		//Configuration
 		ConfigurationView cV=new ConfigurationView();
 		mainFrame.add(cV,BorderLayout.EAST);
-		
 		
 		
 		//Ausgabe textfeld

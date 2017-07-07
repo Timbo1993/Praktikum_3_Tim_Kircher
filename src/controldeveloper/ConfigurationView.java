@@ -13,6 +13,11 @@ import javax.swing.JTextField;
 import javax.swing.event.ListSelectionEvent;
 import javax.swing.event.ListSelectionListener;
 
+
+/**
+ * View Class of the Configuration window with the save button
+ *
+ */
 public class ConfigurationView extends JPanel {
 	JButton save = new JButton("save");
 	JLabel l1=new JLabel("Direction");
@@ -21,7 +26,9 @@ public class ConfigurationView extends JPanel {
 	JTextField f2 = new JTextField(15);
 	
 	
-	
+	/**
+	 * Constructor of ConfigurationView
+	 */
 	public ConfigurationView(){
 		
 		setLayout(new BorderLayout());
@@ -45,24 +52,20 @@ public class ConfigurationView extends JPanel {
 		p1.add(save);
 	
 		// ab hier unterscheidung was ausgewählt ist in Table model
+		/**
+		 * List Selection Listener of the {@link CommandListView} to decide which labels and text areas are shown
+		 * 
+		 */
 		CommandListView.t.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
 			@Override
 			public void valueChanged(ListSelectionEvent arg0) {
-				
-				
-				
-				
-				
 				//sobald man was ausgewählt und gesafet hat kommt automatisch die Konfiguration des ersten Elementes
 				// aussgewählt lassen wenn man es verschiebt?
 				// wenn nur ein element dann kann man es nicht mehr löschen?
 				//Falls nur einer von zwei Textfelden beschrieben wird  funktioniert es nicht
-				
-				
-				
+								
 				f1.setText("");
 				f2.setText("");		//leeren der Textfelder, falls man nicht auuf save drückt
-				
 				
 				
 				if(CommandListView.t.getValueAt(CommandListView.t.getSelectedRow(), 1).equals("Direction")){
@@ -95,7 +98,9 @@ public class ConfigurationView extends JPanel {
 			
 		});
 		
-		
+		/**
+		 * Action Listener for the save button
+		 */
 		save.addActionListener(new ActionListener(){
 
 			@Override
