@@ -62,6 +62,9 @@ public class ControlModel implements IComListener{
 		return instance;
 	}
 	
+	public void start(Vector<ICommand> cL, IOType iO){
+		comHandler.start(cL, iO);
+	}
 	/**
 	 * Fills the list of {@link CommandType}s with the 4 different types of {@link Command}s
 	 */

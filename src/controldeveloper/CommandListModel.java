@@ -10,6 +10,8 @@ import command.Repetition;
 import commandlist.CommandList;
 import controlmodel.ControlModel;
 import java.util.Vector;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 /**
  * Model Class for the {@link CommandList}
@@ -79,22 +81,65 @@ public class CommandListModel extends AbstractTableModel {
 	 * @param row		position of the Command in the {@link CommandList}
 	 */
 	public void setValueAt(String value1,String value2, int row){
+		
+		int i1=0, i2=0;
+		double d1=0;
+		
 		if(ControlModel.getInstance().getControlProcess().get(row).getName().equals("Direction")){
-			((Direction)ControlModel.getInstance().getControlProcess().get(row)).setDegree(Integer.parseInt(value1));
+			try{
+				i1 = Integer.parseInt(value1);
+			}
+			catch(NumberFormatException e){
+				System.out.println("kein gültiger wert");
+			}
+			((Direction)ControlModel.getInstance().getControlProcess().get(row)).setDegree(i1);
 			fireTableDataChanged();
 		}
 		else if (ControlModel.getInstance().getControlProcess().get(row).getName().equals("Gear")){
-			((Gear)ControlModel.getInstance().getControlProcess().get(row)).setSpeed(Integer.parseInt(value1));
-			((Gear)ControlModel.getInstance().getControlProcess().get(row)).setDuration(Double.parseDouble(value2));
+			try{
+				i1 = Integer.parseInt(value1);
+			}
+			catch(NumberFormatException e){
+				System.out.println("kein gültiger wert");
+			}
+			try{
+				d1 = Double.parseDouble(value2);
+			}
+			catch(NumberFormatException e){
+				System.out.println("kein gültiger wert");
+			}
+			
+			((Gear)ControlModel.getInstance().getControlProcess().get(row)).setSpeed(i1);
+			((Gear)ControlModel.getInstance().getControlProcess().get(row)).setDuration(d1);
 			fireTableDataChanged();
 		}
 		else if (ControlModel.getInstance().getControlProcess().get(row).getName().equals("Repetition")){
-			((Repetition)ControlModel.getInstance().getControlProcess().get(row)).setNrSteps(Integer.parseInt(value1));
-			((Repetition)ControlModel.getInstance().getControlProcess().get(row)).setNrRepetitions(Integer.parseInt(value2));
+			try{
+				i1 = Integer.parseInt(value1);
+			}
+			catch(NumberFormatException e){
+				System.out.println("kein gültiger wert");
+			}
+			try{
+				i2 = Integer.parseInt(value2);
+			}
+			catch(NumberFormatException e){
+				System.out.println("kein gültiger wert");
+			}
+			
+			((Repetition)ControlModel.getInstance().getControlProcess().get(row)).setNrSteps(i1);
+			((Repetition)ControlModel.getInstance().getControlProcess().get(row)).setNrRepetitions(i2);
 			fireTableDataChanged();
 		}
 		else if (ControlModel.getInstance().getControlProcess().get(row).getName().equals("Pause")){
-			((Pause)ControlModel.getInstance().getControlProcess().get(row)).setDuration(Double.parseDouble(value1));
+			try{
+				d1 = Double.parseDouble(value1);
+			}
+			catch(NumberFormatException e){
+				System.out.println("kein gültiger wert");
+			}
+			
+			((Pause)ControlModel.getInstance().getControlProcess().get(row)).setDuration(d1);
 			fireTableDataChanged();
 		}
 	}

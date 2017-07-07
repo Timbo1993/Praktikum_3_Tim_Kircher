@@ -87,7 +87,10 @@ public class ConfigurationView extends JPanel {
 					p3.setVisible(true);
 					p4.setVisible(false);
 				}
-				
+				else{
+					p3.setVisible(false);
+					p4.setVisible(false);
+				}
 			}
 			
 		});
