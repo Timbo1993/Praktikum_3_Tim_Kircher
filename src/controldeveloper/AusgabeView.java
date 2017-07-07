@@ -12,8 +12,9 @@ import javax.swing.JTextArea;
  */
 public class AusgabeView extends JPanel{
 
-	JTextArea ausgabe = new JTextArea(5,20);
-	
+	static JTextArea ausgabe = new JTextArea(5,20);
+	static JScrollPane ausgabeScroll = new JScrollPane(ausgabe);
+
 	
 	
 	public AusgabeView(){
@@ -23,7 +24,7 @@ public class AusgabeView extends JPanel{
 	ausgabe.setEditable(false);
 	ausgabe.setLineWrap(true);
 	ausgabe.setWrapStyleWord(true);
-	ausgabe.setText("Lönz du spacko");
+//	ausgabe.setText("Lönz du spacko");
 	
 //	for(int i=0;i<10;i++){
 //		t.getValueAt(i, i);
@@ -31,9 +32,13 @@ public class AusgabeView extends JPanel{
 //	ausgabe.append("\n"); 
 //	}
 	
-	JScrollPane ausgabeScroll = new JScrollPane(ausgabe);
 	add(ausgabeScroll);
+	
 	}
 	
+	public static void addText(String s){
+		ausgabe.append(s+"\n");
+		ausgabeScroll.getVerticalScrollBar().setValue(ausgabeScroll.getVerticalScrollBar().getMaximum()+1);
+	}
 	
 }

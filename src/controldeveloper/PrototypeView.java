@@ -51,29 +51,20 @@ public class PrototypeView extends JPanel{
 
 			@Override
 			public void actionPerformed(ActionEvent arg0) {
+				
 				if ((lM.setSelectedItem(l.getSelectedIndex()).equals("Direction")))	{
-					System.out.println("yuhuu");
-//					ControlModel.getInstance().getControlProcess().add(
-//							ControlModel.getInstance().getCommandTypes()[0].createInstance()
-//					);
 					CommandListView.aTM.list.add(ControlModel.getInstance().getCommandTypes()[0].createInstance());
 				}
 				
 				else if ((lM.setSelectedItem(l.getSelectedIndex()).equals("Gear")))	{
-					System.out.println("yuhuu2");
-
 					CommandListView.aTM.list.add(ControlModel.getInstance().getCommandTypes()[1].createInstance());
 				}
 				
 				else if ((lM.setSelectedItem(l.getSelectedIndex()).equals("Repetition")))	{
-					System.out.println("yuhuu3");
-
 					CommandListView.aTM.list.add(ControlModel.getInstance().getCommandTypes()[2].createInstance());
 				}
 				
 				else if ((lM.setSelectedItem(l.getSelectedIndex()).equals("Pause")))	{
-					System.out.println("yuhuu4");
-
 					CommandListView.aTM.list.add(ControlModel.getInstance().getCommandTypes()[3].createInstance());
 				}
 				

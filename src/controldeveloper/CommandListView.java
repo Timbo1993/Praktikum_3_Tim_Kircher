@@ -127,7 +127,11 @@ public class CommandListView extends JPanel {
 ////					ausgabe.append((String) t.getValueAt(i, 2)) ; 
 ////					ausgabe.append("\n"); 
 				
+				for (int i=0;i<ControlModel.getInstance().getControlProcess().getLength();i++ ){
+					
+				AusgabeView.addText(t.getValueAt(i, 2).toString());
 				
+				}
 			}
 			
 		});
@@ -138,7 +142,7 @@ public class CommandListView extends JPanel {
 		stop.addActionListener(new ActionListener(){
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				
+				AusgabeView.ausgabe.setText("");
 			}
 			
 		});

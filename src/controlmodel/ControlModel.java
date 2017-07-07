@@ -11,6 +11,8 @@
 
 package controlmodel;
 
+import hsrt.mec.controldeveloper.io.SerialUSB;
+
 import java.io.File;
 import java.util.Vector;
 import command.Command;
@@ -39,7 +41,7 @@ public class ControlModel implements IComListener{
 	private IOType ioObj;
 	private ComHandler comHandler;
 	private ComPortHandler comPortHandler;
-	
+	private SerialUSB serial;
 	
 	/**
 	 * Default constructor
@@ -62,8 +64,15 @@ public class ControlModel implements IComListener{
 		return instance;
 	}
 	
-	public void start(Vector<ICommand> cL, IOType iO){
-		comHandler.start(cL, iO);
+	public void start(IOType iO){
+		Vector<ICommand> commands = new Vector<ICommand>();
+		for(int i= 0; controlProcess.get(i) != null; i++)
+			commands.add(controlProcess.get(i));
+		comHandler.start(commands, iO);
+	}
+	
+	public void stop(){
+		comHandler.stop();
 	}
 	/**
 	 * Fills the list of {@link CommandType}s with the 4 different types of {@link Command}s
