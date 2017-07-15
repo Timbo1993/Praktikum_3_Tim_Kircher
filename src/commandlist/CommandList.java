@@ -249,6 +249,12 @@ public class CommandList {
 			hilfszeiger = hilfszeiger.getPrev();
 		}
 		
+		else if(pos==0 && hilfszeiger.getNext()==null){
+			isInList = false;
+			System.out.println("Element is already at the end of the list");
+			System.out.println("\n");
+		}
+		
 		if(isInList){
 			if (pos == 0){
 				if(hilfszeiger.getNext().getNext()== null){

@@ -28,7 +28,7 @@ import javax.swing.event.ListSelectionListener;
  */
 @SuppressWarnings("serial")
 public class CommandListView extends JPanel {
-	 static JTable t = new JTable();
+	  static JTable t = new JTable();
 	static CommandListModel aTM = null;
 	private JButton remove = new JButton("remove");
 	private JButton up = new JButton("up");
@@ -105,13 +105,18 @@ public class CommandListView extends JPanel {
 			public void actionPerformed(ActionEvent e) {
 				if(t.getSelectedRow()!=-1){
 					int merker = t.getSelectedRow();
-					ControlModel.getInstance().getControlProcess().moveDown(t.getSelectedRow());
-					CommandListView.aTM.fireTableDataChanged();
-				
+					
+				ControlModel.getInstance().getControlProcess().moveDown(t.getSelectedRow());
+						CommandListView.aTM.fireTableDataChanged();
+						
 					if(merker == ControlModel.getInstance().getControlProcess().getLength()-1)
 						t.setRowSelectionInterval(merker, merker);
 					else
+					{
+						
+						
 						t.setRowSelectionInterval(merker+1, merker+1);
+					}
 				}
 			}
 				
